@@ -158,6 +158,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceValue: 600
   ballPrefab: {fileID: 2971418823599038447, guid: ba7d3b53eed9b9640855778640a0d029, type: 3}
+  sensX: 900
+  sensY: 900
 --- !u!54 &713653690
 Rigidbody:
   m_ObjectHideFlags: 0

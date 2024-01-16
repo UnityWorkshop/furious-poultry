@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7733952919358023206}
   - component: {fileID: 5483890566806235419}
   - component: {fileID: 2971418823599038447}
+  - component: {fileID: 4483614114604746653}
   m_Layer: 0
   m_Name: Cluck
   m_TagString: Untagged
@@ -133,3 +134,16 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4483614114604746653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4034985137402232140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28c91b1932b668e4ebe82bdc6fd4471c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forceValue: 200

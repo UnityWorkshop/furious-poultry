@@ -9,11 +9,8 @@ public class Poultry : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //Debug.Log("Collision with " + collision.gameObject.name);
-        if (collision.gameObject.GetComponent<Enemies>() != null)
-        {
-            //Debug.Log("is enemy");
-            collision.gameObject.GetComponent<Enemies>().Damage(damage);
-        }
+        Enemies collidedEnemyScript = collision.gameObject.GetComponent<Enemies>();
+        if (collidedEnemyScript is not null)
+            collidedEnemyScript.Damage(damage);
     }
 }

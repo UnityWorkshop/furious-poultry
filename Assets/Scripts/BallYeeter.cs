@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
+
 public class BallYeeter : MonoBehaviour
 {
     [SerializeField] private float forceValue;
     [SerializeField] private Rigidbody ballPrefab;
     [SerializeField] private Transform yeetPos;
+
+    [SerializeField] public GameObject player;
     
     public int sensX;
     public int sensY;
@@ -28,8 +32,12 @@ public class BallYeeter : MonoBehaviour
             Vector3 yeetPower = transform.forward * forceValue;
             Rigidbody instantiated = Instantiate(ballPrefab, yeetPos.position, Quaternion.identity);
             instantiated.AddForce(yeetPower);
+            player.transform.parent = instantiated.transform;
+            //if (){ }
+
         }
 
+        
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
         float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
 

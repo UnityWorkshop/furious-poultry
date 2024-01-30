@@ -348,6 +348,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!4 &1294061010 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1669264188941560142, guid: 32c1d6857db710f409b7a3619721a690, type: 3}
+  m_PrefabInstance: {fileID: 8605093038192314102}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2034184732
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,6 +564,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4751480577757748615, guid: 32c1d6857db710f409b7a3619721a690, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1294061010}
     - target: {fileID: 5140668110836320735, guid: 32c1d6857db710f409b7a3619721a690, type: 3}
       propertyPath: m_Name
       value: Zeplin

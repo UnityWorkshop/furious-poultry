@@ -504,6 +504,10 @@ PrefabInstance:
       propertyPath: currentFocus
       value: 
       objectReference: {fileID: 235429258}
+    - target: {fileID: 8462417880499471841, guid: c6178fe3c207fbc4e94ea592b2c0f8a3, type: 3}
+      propertyPath: zeplinYeetPos
+      value: 
+      objectReference: {fileID: 235429258}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

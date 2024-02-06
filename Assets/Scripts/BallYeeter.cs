@@ -29,6 +29,10 @@ public class BallYeeter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (currentFocus == null)       // works, but feels fucky, please help
+        {
+            currentFocus = zeplinYeetPos;
+        }    
         transform.position = currentFocus.position;
         if (Input.GetKeyDown(KeyCode.Mouse0) && currentFocus == zeplinYeetPos)   
         {

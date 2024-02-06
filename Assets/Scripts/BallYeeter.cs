@@ -9,7 +9,7 @@ public class BallYeeter : MonoBehaviour
     [SerializeField] private Rigidbody ballPrefab;
     [SerializeField] private Transform yeetPos;
 
-    [SerializeField] public GameObject player;
+    [SerializeField] private Transform currentFocus; 
     
     public int sensX;
     public int sensY;
@@ -27,12 +27,13 @@ public class BallYeeter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.position = currentFocus.position;
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Vector3 yeetPower = transform.forward * forceValue;
             Rigidbody instantiated = Instantiate(ballPrefab, yeetPos.position, Quaternion.identity);
             instantiated.AddForce(yeetPower);
-            player.transform.parent = instantiated.transform;
+            currentFocus = instantiated.transform;
             //if (){ }
 
         }

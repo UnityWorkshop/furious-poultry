@@ -6,22 +6,20 @@ using UnityEngine;
 public class Poultry : MonoBehaviour
 {
     [SerializeField] private int damage;
-    [SerializeField] private float health = 100f;
+    [SerializeField] private int health = 100;
     [SerializeField] private bool isOnGround = false;
     [SerializeField] private bool hasCollided = false;
-    [SerializeField] private float decayTickDamage = 1f / 60f;
+    [SerializeField] private int decayTickDamage = 1;//120f / 60f; (test) // float appears to not work correctly, always defaulting to smt around 0.001 or smt, int works but it's quick
 
-    // todo: timed life -> reduce hp by x every second after collision
     private void FixedUpdate()
     {
         if (hasCollided)
         {
             health -= decayTickDamage;
         }
-
         if (health <= 0)
         {
-            Destroy(gameObject);
+            DestroyPoultry();
         }
     }
 
@@ -39,11 +37,13 @@ public class Poultry : MonoBehaviour
         {
             //Debug.Log("hit ground"); 
             isOnGround = true;
-            //death here
+            DestroyPoultry();
         }
+    }
 
-        
-            
-        
+    private void DestroyPoultry()
+    {
+        Destroy(gameObject);
+        //insert death animation
     }
 }

@@ -46,8 +46,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceValue: 1000
-  ballPrefab: {fileID: 2971418823599038447, guid: ba7d3b53eed9b9640855778640a0d029, type: 3}
+  ballPrefabs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   yeetPos: {fileID: 9190868448265222125}
+  zeplinYeetPos: {fileID: 0}
+  currentFocus: {fileID: 0}
   sensX: 900
   sensY: 900
 --- !u!1 &2007913814444439225

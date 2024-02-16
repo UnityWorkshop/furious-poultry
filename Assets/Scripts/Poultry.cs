@@ -1,15 +1,23 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
+using Vector3 = UnityEngine.Vector3;
 
-public class Poultry : MonoBehaviour
+[RequireComponent(typeof(Rigidbody))]
+public abstract class Poultry : MonoBehaviour
 {
     [SerializeField] private int damage;
     [SerializeField] private int health = 100;
-    [SerializeField] private bool isOnGround = false;
-    [SerializeField] private bool hasCollided = false;
+    [SerializeField] protected bool isOnGround;
+    [SerializeField] private bool hasCollided;
     [SerializeField] private int decayTickDamage = 1;   //120f / 60f; (test) // float appears to not work correctly, always defaulting to smt around 0.001 or smt, int works but it's quick
+    private Rigidbody _rigidbody;
+    private void Start()
+    {
+        _rigidbody = GetComponent<Rigidbody>();
+    }
 
     private void FixedUpdate()
     {
@@ -50,4 +58,11 @@ public class Poultry : MonoBehaviour
             */
         
     }
+
+    public void AddForce(Vector3 directionalForce)
+    {
+        _rigidbody.AddForce(directionalForce);
+    }
+
+    public abstract bool IsDead();
 }

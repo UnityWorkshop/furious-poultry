@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DefaultNamespace;
+using Unity.VisualScripting;
 using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -10,11 +11,12 @@ using UnityEngine.Serialization;
 public class BallYeeter : MonoBehaviour
 {
     [SerializeField] private float forceValue;
-    [FormerlySerializedAs("ballPrefab")] [SerializeField] private List <Rigidbody> ballPrefabs;
+    [FormerlySerializedAs("ballPrefab")] [SerializeField] private List <Poultry> ballPrefabs;
     [SerializeField] private Transform yeetPos;
 
     [SerializeField] private Transform zeplinYeetPos;
     [SerializeField] private Transform currentFocus;
+    
     
     public int sensX;
     public int sensY;
@@ -22,8 +24,8 @@ public class BallYeeter : MonoBehaviour
     private float _xRotation;
     private float _yRotation;
     private ClampableIndex _currentPrefabIndex;
+    private Poultry _currentPoultry;
     
-    // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -36,7 +38,6 @@ public class BallYeeter : MonoBehaviour
         _currentPrefabIndex = new ClampableIndex(0 , 0, ballPrefabs.Count -1);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.A))
@@ -48,7 +49,7 @@ public class BallYeeter : MonoBehaviour
             _currentPrefabIndex.IncrementIndex();
         }
         
-        if (currentFocus == null)       // works, but feels fucky, please help
+        if (_currentPoultry.IsDead())       
         {
             currentFocus = zeplinYeetPos;
         }    
@@ -56,7 +57,7 @@ public class BallYeeter : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0) && currentFocus == zeplinYeetPos)   
         {
             Vector3 yeetPower = transform.forward * forceValue;
-            Rigidbody instantiated = Instantiate(ballPrefabs[_currentPrefabIndex.Index], yeetPos.position, Quaternion.identity);
+            Poultry instantiated = Instantiate(ballPrefabs[_currentPrefabIndex.Index], yeetPos.position, Quaternion.identity);
             instantiated.AddForce(yeetPower);
             currentFocus = instantiated.transform;
             

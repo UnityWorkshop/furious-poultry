@@ -866,8 +866,9 @@ MonoBehaviour:
   stoppingDistance: 2
   paths:
   - targets:
-    - {fileID: 2082322643}
     - {fileID: 1534754956}
+    - {fileID: 2082322643}
+    - {fileID: 991269589}
   - targets:
     - {fileID: 991269589}
     - {fileID: 1027001940}

@@ -20,6 +20,10 @@ public class ZeplinAgent : MonoBehaviour
     private int currentTargetIndex;
     private List<Transform> currentPath;
     private int currentPathIndex;
+
+    private bool changingPaths;
+    private int ChangePathAt;
+    private int ChangePathAt2;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +32,6 @@ public class ZeplinAgent : MonoBehaviour
             throw new ArgumentException("you stupid");
         ChangePath();
         ChangeTarget();
-        
     }
 
     // Update is called once per frame
@@ -36,18 +39,25 @@ public class ZeplinAgent : MonoBehaviour
     {
         if (currentTarget is null)
         {
-            throw new ArgumentException("whyyyyyyyyyy");
+            throw new ArgumentException("sadge");
         }
-        if (Vector3.Distance(transform.position, currentTarget.position )<= stoppingDistance)
+
+        if (Vector3.Distance(transform.position, currentTarget.position) <= stoppingDistance)
+        {
+            CheckPathChange();
             ChangeTarget();
+        }
+
         if (Input.GetKeyDown(KeyCode.A))
         {
-            ChangePath();
+            StartToChangePaths();
         }
     }
 
     void ChangeTarget()
     {
+       
+        
         if (currentTarget is null || currentTargetIndex>=currentPath.Count)
         {
             currentTarget = currentPath[0];
@@ -60,6 +70,48 @@ public class ZeplinAgent : MonoBehaviour
         _navMeshAgent.destination = currentTarget.position;
     }
 
+    List<Transform> nextPath()
+    {
+        List<Transform> nextPath;
+        if (currentPath is null || currentPathIndex>=paths.Count)
+        {
+            nextPath = paths[0].targets;
+        }
+        else
+            nextPath = paths[currentPathIndex+1].targets;
+
+        return nextPath;
+    }
+
+    void StartToChangePaths()
+    {
+        foreach (Transform target in currentPath)
+        {
+            foreach (Transform node in nextPath())
+            {
+                if (target == node)
+                {
+                    ChangePathAt = currentPath.IndexOf(target);
+                    ChangePathAt2 = currentPath.IndexOf(node);
+                }
+            }
+        }
+
+        changingPaths = true;
+    }
+
+    void CheckPathChange()
+    {
+        if (changingPaths)
+        {
+            if (ChangePathAt == currentTargetIndex)
+            {
+                ChangePath();
+                currentTargetIndex = ChangePathAt2;
+            } 
+        }
+    }
+
     void ChangePath()
     {
         if (currentPath is null || currentPathIndex>=paths.Count)
@@ -70,9 +122,6 @@ public class ZeplinAgent : MonoBehaviour
         else
             currentPath = paths[currentPathIndex ++].targets;
 
-        currentTargetIndex = 0;
-        ChangeTarget();
+        changingPaths = false;
     }
-   
-
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
@@ -9,21 +10,23 @@ using UnityEngine.UIElements;
 [RequireComponent(typeof(NavMeshAgent))]
 public class ZeplinAgent : MonoBehaviour
 {
+    
+    [SerializeField] private float stoppingDistance;
+    [SerializeField] private List<Path> paths; 
+    
+    
     private NavMeshAgent _navMeshAgent;
     private Transform currentTarget;
     private int currentTargetIndex;
-    private List<Transform> path1;
-    private List<Transform> path2;
     private List<Transform> currentPath;
-    [SerializeField] private float stoppingDistance;
-    [SerializeField] private List<Transform> targets ;
+    private int currentPathIndex;
     // Start is called before the first frame update
     void Start()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
-        if (!targets.Any())
+        if (!paths.Any())
             throw new ArgumentException("you stupid");
-        fillPaths();
+        ChangePath();
         ChangeTarget();
         
     }
@@ -39,7 +42,7 @@ public class ZeplinAgent : MonoBehaviour
             ChangeTarget();
         if (Input.GetKeyDown(KeyCode.A))
         {
-            currentPath=changePath();
+            ChangePath();
         }
     }
 
@@ -57,39 +60,19 @@ public class ZeplinAgent : MonoBehaviour
         _navMeshAgent.destination = currentTarget.position;
     }
 
-    List<Transform> changePath()
+    void ChangePath()
     {
-        /*
-        pathChanging = true;
-        int a = 0;
-        while (true)
+        if (currentPath is null || currentPathIndex>=paths.Count)
         {
-            for(int i=0; i<nodesPerPath; i++)
-            {
-                if (currentPath[i] == nextPath[a])
-                {
-                    if (currentTargetIndex-i < nodesPerPath) return currentTargetIndex-i;
-                    else if(currentTargetIndex-i > nodesPerPath) return 
-                    
-                }
-            }
-
-            a++;
+            currentPath = paths[0].targets;
+            currentPathIndex = 0;
         }
-        */
-        if (currentPath == path1) return path2;
-        else return path1;
-    }
+        else
+            currentPath = paths[currentPathIndex ++].targets;
 
-    void fillPaths()
-    {
-        path1.Add(targets[0]);
-        path1.Add(targets[1]);
-        path1.Add(targets[2]);
-        path2.Add(targets[1]);
-        path2.Add(targets[2]);
-        path2.Add(targets[3]);
-        currentPath = path2;
+        currentTargetIndex = 0;
+        ChangeTarget();
     }
+   
 
 }

@@ -864,12 +864,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stoppingDistance: 2
-  targets:
-  - {fileID: 1534754956}
-  - {fileID: 2082322643}
-  - {fileID: 991269589}
-  - {fileID: 1027001940}
-  - {fileID: 908244115}
+  paths:
+  - targets:
+    - {fileID: 2082322643}
+    - {fileID: 1534754956}
+  - targets:
+    - {fileID: 991269589}
+    - {fileID: 1027001940}
+    - {fileID: 908244115}
 --- !u!195 &1997943944
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class Poultry : MonoBehaviour
     [SerializeField] private int health = 100;
     [SerializeField] private bool isOnGround = false;
     [SerializeField] private bool hasCollided = false;
-    [SerializeField] private int decayTickDamage = 1;//120f / 60f; (test) // float appears to not work correctly, always defaulting to smt around 0.001 or smt, int works but it's quick
+    [SerializeField] private int decayTickDamage = 1;   //120f / 60f; (test) // float appears to not work correctly, always defaulting to smt around 0.001 or smt, int works but it's quick
 
     private void FixedUpdate()
     {
@@ -43,7 +43,11 @@ public class Poultry : MonoBehaviour
 
     private void DestroyPoultry()
     {
-        Destroy(gameObject);
-        //insert death animation
+        Destroy(gameObject);   
+            /*
+            insert death animation
+            and some animation so it wont be a harsh jump cut
+            */
+        
     }
 }

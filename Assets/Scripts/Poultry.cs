@@ -19,7 +19,7 @@ public abstract class Poultry : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    private void FixedUpdate()
+    private void FixedUpdate()  
     {
         if (hasCollided)
         {
@@ -65,4 +65,6 @@ public abstract class Poultry : MonoBehaviour
     }
 
     public abstract bool IsDead();
+
+    public abstract void DoPrimaryAbility();
 }

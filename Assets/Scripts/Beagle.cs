@@ -8,4 +8,15 @@ public class Beagle : Poultry
     {
         return isOnGround;
     }
+
+    public override void DoPrimaryAbility()
+    {
+        ShootShotgun();
+    }
+
+    private void ShootShotgun()
+    {
+        // pew pew here
+        // how do i shotgun?
+    }
 }

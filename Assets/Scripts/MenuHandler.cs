@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -17,10 +18,13 @@ public class MenuHandler : MonoBehaviour
     {
         _scenes = EditorBuildSettings.scenes.Length;
 
-        for (int i = 0; i < _scenes; i++)
+        for (int i = 1; i < _scenes + 1; i++)
         {
             GameObject button;
             button = Instantiate(buttonPrefab,this.transform);
+            TMP_Text buttText = button.transform.GetChild(0).GetComponent<TMP_Text>();
+            
+            buttText.SetText(i.ToString());
         }
     }
 }

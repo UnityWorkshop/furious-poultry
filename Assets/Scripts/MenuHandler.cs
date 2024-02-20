@@ -21,7 +21,7 @@ public class MenuHandler : MonoBehaviour
         for (int i = 1; i < _scenes + 1; i++)
         {
             GameObject button;
-            button = Instantiate(buttonPrefab,this.transform);
+            button = Instantiate(buttonPrefab, transform);
             TMP_Text buttText = button.transform.GetChild(0).GetComponent<TMP_Text>();
             
             buttText.SetText(i.ToString());

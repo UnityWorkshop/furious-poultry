@@ -9,7 +9,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 public class BallYeeter : MonoBehaviour
-{
+{ 
     [SerializeField] private float forceValue;
     [FormerlySerializedAs("ballPrefab")] [SerializeField] private List <Poultry> ballPrefabs;
     [SerializeField] private Transform yeetPos;
@@ -54,15 +54,7 @@ public class BallYeeter : MonoBehaviour
             currentFocus = zeplinYeetPos;
         }    
         transform.position = currentFocus.position;
-        if (Input.GetKeyDown(KeyCode.Mouse0) && currentFocus == zeplinYeetPos)   
-        {
-            Vector3 yeetPower = transform.forward * forceValue;
-            Poultry instantiated = Instantiate(ballPrefabs[_currentPrefabIndex.Index], yeetPos.position, Quaternion.identity);
-            instantiated.AddForce(yeetPower);
-            currentFocus = instantiated.transform;
-            
-
-        }
+        if (Input.GetKeyDown(KeyCode.Mouse0)) ExecutePrimaryAction();
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
         float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
 
@@ -74,6 +66,18 @@ public class BallYeeter : MonoBehaviour
         transform.rotation = Quaternion.Euler(_xRotation, _yRotation, 0);
     }
 
+    private void ExecutePrimaryAction()
+    {
+        if (currentFocus == zeplinYeetPos)
+        {
+            Vector3 yeetPower = transform.forward * forceValue;
+            _currentPoultry = Instantiate(ballPrefabs[_currentPrefabIndex.Index], yeetPos.position, Quaternion.identity);
+            _currentPoultry.AddForce(yeetPower);
+            currentFocus = _currentPoultry.transform;
+            return;
+        }
+        _currentPoultry.DoPrimaryAbility();
+    }
     
     
 }

@@ -11,6 +11,8 @@ using UnityEngine.UI;
 public class MenuHandler : MonoBehaviour
 {
     private int _scenes;
+
+    //private Button _currentButton;
     
     [SerializeField] private GameObject buttonPrefab;
 
@@ -20,11 +22,17 @@ public class MenuHandler : MonoBehaviour
 
         for (int i = 1; i < _scenes + 1; i++)
         {
-            GameObject button;
-            button = Instantiate(buttonPrefab, transform);
-            TMP_Text buttText = button.transform.GetChild(0).GetComponent<TMP_Text>();
+            GameObject buttonObject = Instantiate(buttonPrefab, transform);
+            Button _currentButton = buttonObject.GetComponent<Button>();
+            _currentButton.onClick.AddListener(() => LevelButtonClicked(i));
             
+            TMP_Text buttText = buttonObject.transform.GetChild(0).GetComponent<TMP_Text>();
             buttText.SetText(i.ToString());
         }
+    }
+
+    void LevelButtonClicked(int lvl)
+    {
+        SceneManager.LoadScene(lvl);
     }
 }

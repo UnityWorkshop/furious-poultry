@@ -20,11 +20,13 @@ public class MenuHandler : MonoBehaviour
     {
         _scenes = EditorBuildSettings.scenes.Length;
 
-        for (int i = 1; i < _scenes + 1; i++)
+        for (int i = 1; i < _scenes; i++)
         {
+            var i1 = i;
+            
             GameObject buttonObject = Instantiate(buttonPrefab, transform);
             Button currentButton = buttonObject.GetComponent<Button>();
-            currentButton.onClick.AddListener(() => LevelButtonClicked(i));
+            currentButton.onClick.AddListener(() => LevelButtonClicked(i1));
             
             TMP_Text buttText = buttonObject.transform.GetChild(0).GetComponent<TMP_Text>();
             buttText.SetText(i.ToString());

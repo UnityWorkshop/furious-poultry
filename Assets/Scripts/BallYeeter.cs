@@ -40,21 +40,26 @@ public class BallYeeter : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        { 
-            _currentPrefabIndex.DecrementIndex();
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            _currentPrefabIndex.IncrementIndex();
-        }
+        PoultryCycling();
+         
+        PlayerPositionUpdater();
         
-        if (_currentPoultry.IsDead())       
-        {
-            currentFocus = zeplinYeetPos;
-        }    
-        transform.position = currentFocus.position;
         if (Input.GetKeyDown(KeyCode.Mouse0)) ExecutePrimaryAction();
+
+        MouseLook();
+        
+        StateCheck(); 
+    }
+
+    //--//
+    
+    private void PlayerPositionUpdater()
+    {
+        transform.position = currentFocus.position;
+    }
+    
+    private void MouseLook() // actual name for looking around with a mouse in a game source: wikipedia
+    {
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
         float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
 
@@ -65,7 +70,26 @@ public class BallYeeter : MonoBehaviour
         
         transform.rotation = Quaternion.Euler(_xRotation, _yRotation, 0);
     }
+    
+    private void StateCheck()
+    {
+        if (_currentPoultry.IsDead())       
+        {
+            currentFocus = zeplinYeetPos;
+        }  
+    }
 
+    private void PoultryCycling()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        { 
+            _currentPrefabIndex.DecrementIndex();
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            _currentPrefabIndex.IncrementIndex();
+        }
+    }
     private void ExecutePrimaryAction()
     {
         if (currentFocus == zeplinYeetPos)

@@ -37,12 +37,7 @@ public class ZeplinAgent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentTarget is null)
-        {
-            throw new ArgumentException("sadge");
-        }
-
-        if (Vector3.Distance(transform.position, currentTarget.position) <= stoppingDistance)
+        if (IsAgentAtTarget())
         {
             CheckPathChange();
             ChangeTarget();
@@ -56,7 +51,6 @@ public class ZeplinAgent : MonoBehaviour
 
     void ChangeTarget()
     {
-       
         
         if (currentTarget is null || currentTargetIndex>=currentPath.Count)
         {
@@ -123,5 +117,10 @@ public class ZeplinAgent : MonoBehaviour
             currentPath = paths[currentPathIndex ++].targets;
 
         changingPaths = false;
+    }
+
+    bool IsAgentAtTarget()
+    {
+        return Vector3.Distance(transform.position, currentTarget.position) <= stoppingDistance;
     }
 }

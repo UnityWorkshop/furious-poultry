@@ -13,7 +13,7 @@ public class ZeplinAgent : MonoBehaviour
     
     [SerializeField] private float stoppingDistance;
     [SerializeField] private List<Path> paths;
-
+    
     private PathManager _manager;
     
     private NavMeshAgent _navMeshAgent;

@@ -33,7 +33,7 @@ public class Beagle : Poultry
             rotation.y += RandomRotationDeviation();
             rotation.z += RandomRotationDeviation();
             Quaternion rotationQuaternion = Quaternion.Euler(rotation);
-            Rigidbody pellet = Instantiate(pelletPrefab, transform.position, rotationQuaternion);
+            Rigidbody pellet = Instantiate(pelletPrefab, ShotPosition(), rotationQuaternion);
             pellet.AddForce(rotation * pelletSpeed);
         }
     }
@@ -41,5 +41,10 @@ public class Beagle : Poultry
     private float RandomRotationDeviation()
     {
         return Random.Range(-pelletSpread, pelletSpread);
+    }
+
+    private Vector3 ShotPosition()
+    {
+        return transform.position ; // todo: transform.position + buffer distance in viewing direction
     }
 }

@@ -25,14 +25,14 @@ public class ZeplinAgent : MonoBehaviour
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _manager = new PathManager(paths);
-        _manager.GetNewTarget();
+        SetNewDestination();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (IsAgentAtTarget())
-            _navMeshAgent.destination = _manager.GetNewTarget().position;
+            SetNewDestination();
         
         
 
@@ -46,8 +46,9 @@ public class ZeplinAgent : MonoBehaviour
         return Vector3.Distance(transform.position, _navMeshAgent.destination) <= stoppingDistance;
     }
 
-    public void SetDestination(Transform goal)
+    public void SetNewDestination()
     {
-        _navMeshAgent.destination = goal.position;
+        _navMeshAgent.destination = _manager.GetNewTarget().position;
     }
+    
 }

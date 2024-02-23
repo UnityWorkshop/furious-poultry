@@ -25,6 +25,7 @@ namespace DefaultNamespace
             changingPaths = false;
             currentPath = paths[0];
             currentPathIndex = 0;
+            UpdateNextPath();
         }
         
         
@@ -62,7 +63,7 @@ namespace DefaultNamespace
         
         void UpdateNextPath()
         {
-            if (currentPathIndex>= _paths.Count)
+            if (currentPath is null ||currentPathIndex>= _paths.Count)
             {
                 nextPath = _paths[0];
             }

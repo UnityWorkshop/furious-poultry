@@ -23,8 +23,8 @@ public class MenuHandler : MonoBehaviour
         for (int i = 1; i < _scenes + 1; i++)
         {
             GameObject buttonObject = Instantiate(buttonPrefab, transform);
-            Button _currentButton = buttonObject.GetComponent<Button>();
-            _currentButton.onClick.AddListener(() => LevelButtonClicked(i));
+            Button currentButton = buttonObject.GetComponent<Button>();
+            currentButton.onClick.AddListener(() => LevelButtonClicked(i));
             
             TMP_Text buttText = buttonObject.transform.GetChild(0).GetComponent<TMP_Text>();
             buttText.SetText(i.ToString());

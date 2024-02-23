@@ -41,21 +41,24 @@ public class BallYeeter : MonoBehaviour
     void Update()
     {
         PoultryCycling();
-         
-        PlayerPositionUpdater();
         
         if (Input.GetKeyDown(KeyCode.Mouse0)) ExecutePrimaryAction();
 
+        TryPlayerPositionUpdate();
+        
         MouseLook();
         
-        StateCheck(); 
+        TryResetFocus(); 
     }
 
     //--//
     
-    private void PlayerPositionUpdater()
+    private void TryPlayerPositionUpdate()
     {
-        transform.position = currentFocus.position;
+        if (currentFocus)
+        {
+            transform.position = currentFocus.position;
+        }
     }
     
     private void MouseLook() // actual name for looking around with a mouse in a game source: wikipedia
@@ -71,9 +74,9 @@ public class BallYeeter : MonoBehaviour
         transform.rotation = Quaternion.Euler(_xRotation, _yRotation, 0);
     }
     
-    private void StateCheck()
+    private void TryResetFocus()
     {
-        if (_currentPoultry.IsDead())       
+        if (_currentPoultry && _currentPoultry.IsDead() || !currentFocus)       
         {
             currentFocus = zeplinYeetPos;
         }  
@@ -96,7 +99,7 @@ public class BallYeeter : MonoBehaviour
         {
             Vector3 yeetPower = transform.forward * forceValue;
             _currentPoultry = Instantiate(ballPrefabs[_currentPrefabIndex.Index], yeetPos.position, Quaternion.identity);
-            _currentPoultry.AddForce(yeetPower);
+            _currentPoultry.AddForce(yeetPower);  
             currentFocus = _currentPoultry.transform;
             return;
         }

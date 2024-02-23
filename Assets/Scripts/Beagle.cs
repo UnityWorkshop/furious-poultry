@@ -12,7 +12,6 @@ public class Beagle : Poultry
     
     private bool _abilityUsed;
     
-    
     public override bool IsDead()
     {
         return isOnGround;

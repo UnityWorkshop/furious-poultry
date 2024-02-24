@@ -58,6 +58,7 @@ public class BallYeeter : MonoBehaviour
         if (currentFocus)
         {
             transform.position = currentFocus.position;
+            currentFocus.transform.rotation = transform.rotation;
         }
     }
     
@@ -72,6 +73,7 @@ public class BallYeeter : MonoBehaviour
         _xRotation = Mathf.Clamp(_xRotation, -90f, 90f);
         
         transform.rotation = Quaternion.Euler(_xRotation, _yRotation, 0);
+       
     }
     
     private void TryResetFocus()

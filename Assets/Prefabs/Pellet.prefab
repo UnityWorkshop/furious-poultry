@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -9042591375044652550}
   m_Layer: 0
   m_Name: Pellet
-  m_TagString: Untagged
+  m_TagString: AbilityLeftovers
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

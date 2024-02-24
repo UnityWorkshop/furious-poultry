@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Beagle : Poultry
@@ -8,7 +9,7 @@ public class Beagle : Poultry
     [SerializeField] private Rigidbody pelletPrefab;
     [SerializeField] private float pelletSpeed = 1;// 1 = temp
     [SerializeField] private float pelletSpread = 0.01f;
-        
+    [SerializeField] private Transform shotPosition;
     
     private bool _abilityUsed;
     
@@ -23,17 +24,21 @@ public class Beagle : Poultry
         ShootShotgun();
         
     }
+    
 
     private void ShootShotgun()
     {
+        if (_abilityUsed) return;
+        
         for (int i = 0; i < pelletAmount; i++) // not optimal
         {
+            _abilityUsed = true;
             Vector3 rotation = transform.rotation.eulerAngles;
             rotation.x += RandomRotationDeviation();
             rotation.y += RandomRotationDeviation();
             rotation.z += RandomRotationDeviation();
             Quaternion rotationQuaternion = Quaternion.Euler(rotation);
-            Rigidbody pellet = Instantiate(pelletPrefab, ShotPosition(), rotationQuaternion);
+            Rigidbody pellet = Instantiate(pelletPrefab, shotPosition.position, rotationQuaternion);
             pellet.AddForce(rotation * pelletSpeed);
         }
     }

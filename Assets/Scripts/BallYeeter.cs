@@ -48,7 +48,9 @@ public class BallYeeter : MonoBehaviour
         
         MouseLook();
         
-        TryResetFocus(); 
+        TryResetFocus();
+
+        TryManualPoultryReset();
     }
 
     //--//
@@ -111,10 +113,18 @@ public class BallYeeter : MonoBehaviour
 
     private void DestroyAllAbilityLeftovers()
     {
-        GameObject[] LeftoversToDelete = GameObject.FindGameObjectsWithTag("AbilityLeftovers");
-        foreach (GameObject LeftOver in LeftoversToDelete)
+        GameObject[] leftoversToDelete = GameObject.FindGameObjectsWithTag("AbilityLeftovers");
+        foreach (GameObject leftOver in leftoversToDelete)
         {
-            Destroy(LeftOver);
+            Destroy(leftOver);
+        }
+    }
+
+    private void TryManualPoultryReset()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            _currentPoultry.DestroyPoultry();
         }
     }
     

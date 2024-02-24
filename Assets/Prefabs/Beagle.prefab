@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1406830405612676264}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -187,7 +187,7 @@ MonoBehaviour:
   pelletAmount: 9
   pelletPrefab: {fileID: -9042591375044652550, guid: 316cd14a254488d45953a5186bb74229, type: 3}
   pelletSpeed: 1
-  pelletSpread: 0.01
+  pelletSpread: 0.1
   shotPosition: {fileID: 3805856747541044599}
 --- !u!1 &8083260382267941168
 GameObject:

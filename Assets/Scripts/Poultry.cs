@@ -56,6 +56,7 @@ public abstract class Poultry : MonoBehaviour
     private void DestroyPoultry()
     {
         Destroy(gameObject);   
+        
             /*
             insert death animation
             and some animation so it wont be a harsh jump cut

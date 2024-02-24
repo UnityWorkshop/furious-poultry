@@ -97,6 +97,7 @@ public class BallYeeter : MonoBehaviour
     {
         if (currentFocus == zeplinYeetPos)
         {
+            DestroyAllAbilityLeftovers();
             Vector3 yeetPower = transform.forward * forceValue;
             _currentPoultry = Instantiate(ballPrefabs[_currentPrefabIndex.Index], yeetPos.position, Quaternion.identity);
             _currentPoultry.AddForce(yeetPower);  
@@ -105,6 +106,14 @@ public class BallYeeter : MonoBehaviour
         }
         _currentPoultry.DoPrimaryAbility();
     }
-    
+
+    private void DestroyAllAbilityLeftovers()
+    {
+        GameObject[] LeftoversToDelete = GameObject.FindGameObjectsWithTag("AbilityLeftovers");
+        foreach (GameObject LeftOver in LeftoversToDelete)
+        {
+            Destroy(LeftOver);
+        }
+    }
     
 }

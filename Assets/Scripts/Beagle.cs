@@ -29,17 +29,17 @@ public class Beagle : Poultry
     private void ShootShotgun()
     {
         if (_abilityUsed) return;
-        
+        _abilityUsed = true;
         for (int i = 0; i < pelletAmount; i++) // not optimal
         {
-            _abilityUsed = true;
             Vector3 rotation = transform.rotation.eulerAngles;
             rotation.x += RandomRotationDeviation();
             rotation.y += RandomRotationDeviation();
             rotation.z += RandomRotationDeviation();
             Quaternion rotationQuaternion = Quaternion.Euler(rotation);
             Rigidbody pellet = Instantiate(pelletPrefab, shotPosition.position, rotationQuaternion);
-            pellet.AddForce(rotation * pelletSpeed);
+            Vector3 shotForce = transform.forward * pelletSpeed ;
+            pellet.AddForce(shotForce);
         }
     }
 

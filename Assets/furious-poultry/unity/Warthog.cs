@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace com.github.UnityWorkshop.furious_poultry.unity
 {
-    public class Enemies : MonoBehaviour
+    public abstract class Warthog : MonoBehaviour
     {
         [SerializeField] private int health = 50;
 

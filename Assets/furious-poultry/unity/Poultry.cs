@@ -35,10 +35,10 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
         private void OnCollisionEnter(Collision collision)
         {
             hasCollided = true;
-            Enemies collidedEnemyScript = collision.gameObject.GetComponent<Enemies>();
-            if (collidedEnemyScript is not null)
+            Warthog collidedWarthogScript = collision.gameObject.GetComponent<Warthog>();
+            if (collidedWarthogScript is not null)
             {
-                collidedEnemyScript.Damage(damage);
+                collidedWarthogScript.Damage(damage);
                 health -= damage;
             }
             

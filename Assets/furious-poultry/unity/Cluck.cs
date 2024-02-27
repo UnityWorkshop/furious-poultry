@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DefaultNamespace
+namespace com.github.UnityWorkshop.furious_poultry.unity
 {
     public class Cluck : Poultry
     {

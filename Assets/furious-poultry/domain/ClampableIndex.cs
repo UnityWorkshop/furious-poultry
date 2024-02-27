@@ -1,7 +1,6 @@
 using System;
-using UnityEngine;
 
-namespace DefaultNamespace
+namespace com.github.UnityWorkshop.furious_poultry.domain
 {
     public class ClampableIndex
     {
@@ -18,7 +17,7 @@ namespace DefaultNamespace
         }
         private void IndexClamp(int offset)
         {
-            Index = Mathf.Clamp(Index + offset, _minimumIndex, _maximumIndex);
+            Index = Math.Clamp(Index + offset, _minimumIndex, _maximumIndex);
         }
 
         public void IncrementIndex()

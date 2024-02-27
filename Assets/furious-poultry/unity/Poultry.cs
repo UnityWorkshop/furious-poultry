@@ -1,3 +1,4 @@
+using furious_poultry.unity;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
@@ -6,11 +7,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
     [RequireComponent(typeof(Rigidbody))]
     public abstract class Poultry : MonoBehaviour
     {
-        [SerializeField] private int damage;
-        [SerializeField] private int health = 100;
-        [SerializeField] protected bool isOnGround;
-        [SerializeField] private bool hasCollided;
-        [SerializeField] private int decayTickDamage = 1;   //120f / 60f; (test) // float appears to not work correctly, always defaulting to smt around 0.001 or smt, int works but it's quick
+        public PoultryDefinition;
         private Rigidbody _rigidbody;
         public void OnValidate()
         {

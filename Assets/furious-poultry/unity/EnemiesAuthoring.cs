@@ -1,14 +1,22 @@
+using System;
+using com.github.UnityWorkshop.furious_poultry.domain;
 using UnityEngine;
 
 namespace com.github.UnityWorkshop.furious_poultry.unity
 {
-    public class Enemies : MonoBehaviour
+    public class EnemiesAuthoring : MonoBehaviour
     {
-        [SerializeField] private int health = 50;
+        public float health = 50;
+        public Enemies Enemy { get; private set; }
+
+        private void Start()
+        {
+            Enemy = new Enemies(health);
+        }
 
         public void Update()
         {
-            if (health <= 0)
+            if (Enemy.Health <= 0)
             {
                 Destroy(gameObject);
                 //Debug.Log("Got'em");

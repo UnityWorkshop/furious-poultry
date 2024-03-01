@@ -11,7 +11,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
     public class BallYeeter : MonoBehaviour
     { 
         [SerializeField] private float forceValue;
-        [FormerlySerializedAs("ballPrefab")] [SerializeField] private List <Poultry> ballPrefabs;
+        [FormerlySerializedAs("ballPrefab")] [SerializeField] private List <PoultryAuthoring> ballPrefabs;
         [SerializeField] private Transform yeetPos;
 
         [SerializeField] private Transform zeplinYeetPos;
@@ -24,7 +24,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
         private float _xRotation;
         private float _yRotation;
         private ClampableIndex _currentPrefabIndex;
-        private Poultry _currentPoultry;
+        private PoultryAuthoring _currentPoultryAuthoring;
     
         void Start()
         {
@@ -80,7 +80,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
     
         private void TryResetFocus()
         {
-            if (_currentPoultry && _currentPoultry.IsDead() || !currentFocus)       
+            if (_currentPoultryAuthoring && _currentPoultryAuthoring.IsDead() || !currentFocus)       
             {
                 currentFocus = zeplinYeetPos;
             }  
@@ -103,12 +103,13 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
             {
                 DestroyAllAbilityLeftovers();
                 Vector3 yeetPower = transform.forward * forceValue;
-                _currentPoultry = Instantiate(ballPrefabs[_currentPrefabIndex.Index], yeetPos.position, Quaternion.identity);
-                _currentPoultry.AddForce(yeetPower);  
-                currentFocus = _currentPoultry.transform;
+                _currentPoultryAuthoring = Instantiate(ballPrefabs[_currentPrefabIndex.Index], yeetPos.position, Quaternion.identity);
+                _currentPoultryAuthoring.Initialize();
+                _currentPoultryAuthoring.AddForce(yeetPower);  
+                currentFocus = _currentPoultryAuthoring.transform;
                 return;
             }
-            _currentPoultry.DoPrimaryAbility();
+            _currentPoultryAuthoring.DoPrimaryAbility();
         }
 
         private void DestroyAllAbilityLeftovers()
@@ -124,7 +125,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
-                _currentPoultry.DestroyPoultry();
+                _currentPoultryAuthoring.Destruct();
             }
         }
     

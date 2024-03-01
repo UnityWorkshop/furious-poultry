@@ -33,7 +33,7 @@ namespace com.github.UnityWorkshop.furious_poultry.domain
             }
         }
 
-        private void Harm(float damage)
+        public void Harm(float damage)
         {
             Health -= damage;
         }

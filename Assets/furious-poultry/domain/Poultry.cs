@@ -38,9 +38,9 @@ namespace com.github.UnityWorkshop.furious_poultry.domain
             Health -= damage;
         }
 
-        public void CollidedWithEnemy(Enemies enemy)
+        public void CollidedWithEnemy(Warthog enemy)
         {
-            enemy.Harm(Damage);
+            enemy.Damage(Damage);
             Harm(Damage);
             HasCollided = true;
         }

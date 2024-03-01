@@ -1,7 +1,9 @@
 {
     "name": "furious-poultry.domain.tests",
     "rootNamespace": "",
-    "references": ["GUID:af9f40918dfcb2846b5cb8e1992888e7"],
+    "references": [
+        "GUID:af9f40918dfcb2846b5cb8e1992888e7"
+    ],
     "includePlatforms": [
         "Editor"
     ],
@@ -9,7 +11,8 @@
     "allowUnsafeCode": false,
     "overrideReferences": true,
     "precompiledReferences": [
-        "nunit.framework.dll"
+        "nunit.framework.dll",
+        "NSubstitute.dll"
     ],
     "autoReferenced": false,
     "defineConstraints": [

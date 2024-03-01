@@ -2,14 +2,14 @@
 {
     public class Warthog
     {
-        private int _health;
+        private float _health;
 
-        public Warthog(int health)
+        public Warthog(float health)
         {
             this._health = health;
         }
 
-        public void Damage(int damage)
+        public void Damage(float damage)
         {
             _health -= damage;
         }

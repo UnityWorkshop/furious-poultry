@@ -1,6 +1,6 @@
 name: Unity Tests
 
-on: [ "push" ]
+on: [ "pull-request" ]
 
 jobs:
   build:

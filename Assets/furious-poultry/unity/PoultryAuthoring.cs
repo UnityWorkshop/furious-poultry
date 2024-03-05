@@ -20,11 +20,10 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
 
         private void OnCollisionEnter(Collision collision)
         {
-            
-            EnemiesAuthoring enemyAuthoring = collision.gameObject.GetComponent<EnemiesAuthoring>();
+            WarthogAuthoring enemyAuthoring = collision.gameObject.GetComponent<WarthogAuthoring>();
             if (enemyAuthoring is not null)
             {
-                Poultry.CollidedWithEnemy(enemyAuthoring.Enemy);
+                Poultry.CollidedWithEnemy(enemyAuthoring.Warthog);
             }
             
             if (collision.gameObject.CompareTag("Ground"))

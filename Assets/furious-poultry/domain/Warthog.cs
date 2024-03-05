@@ -1,4 +1,6 @@
-﻿namespace com.github.UnityWorkshop.furious_poultry.domain
+﻿using System;
+
+namespace com.github.UnityWorkshop.furious_poultry.domain
 {
     public class Warthog
     {
@@ -11,14 +13,19 @@
 
         public void Damage(float damage)
         {
-            _health -= damage;
+            _health = Math.Clamp(_health - damage, 0, _health);
         }
 
         public void Kill()
         {
-            _health -= _health;
+            Damage(_health);
         }
         
         public bool IsDead => _health <= 0;
+
+        public void Landed()
+        {
+            Kill();
+        }
     }
 }

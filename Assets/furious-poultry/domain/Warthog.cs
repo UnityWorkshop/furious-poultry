@@ -4,24 +4,24 @@ namespace com.github.UnityWorkshop.furious_poultry.domain
 {
     public class Warthog
     {
-        private float _health;
+        public float Health { get; private set; }
 
         public Warthog(float health)
         {
-            this._health = health;
+            this.Health = health;
         }
 
         public void Damage(float damage)
         {
-            _health = Math.Clamp(_health - damage, 0, _health);
+            Health = Math.Clamp(Health - damage, 0, Health);
         }
 
         public void Kill()
         {
-            Damage(_health);
+            Damage(Health);
         }
         
-        public bool IsDead => _health <= 0;
+        public bool IsDead => Health <= 0;
 
         public void Landed()
         {

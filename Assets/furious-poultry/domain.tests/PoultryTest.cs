@@ -68,7 +68,7 @@ namespace furious_poultry.domain.tests
         {
             IDestructionProvider destructionProvider = Substitute.For<IDestructionProvider>();
             var poultry = new Poultry(1, 10, 100, false, false, destructionProvider );
-            var enemy = new Enemies(100);
+            var enemy = new Warthog(100);
 
             poultry.CollidedWithEnemy(enemy);
             
@@ -80,7 +80,7 @@ namespace furious_poultry.domain.tests
         {
             IDestructionProvider destructionProvider = Substitute.For<IDestructionProvider>();
             var poultry = new Poultry(1, 10, 100, false, false, destructionProvider );
-            var enemy = new Enemies(100);
+            var enemy = new Warthog(100);
 
             poultry.CollidedWithEnemy(enemy);
             
@@ -92,7 +92,7 @@ namespace furious_poultry.domain.tests
         {
             IDestructionProvider destructionProvider = Substitute.For<IDestructionProvider>();
             var poultry = new Poultry(1, 10, 100, false, false, destructionProvider);
-            var enemy = new Enemies(100);
+            var enemy = new Warthog(100);
 
             poultry.CollidedWithEnemy(enemy);
 

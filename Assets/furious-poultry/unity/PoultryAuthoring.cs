@@ -20,6 +20,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
 
         private void OnCollisionEnter(Collision collision)
         {
+            
             EnemiesAuthoring enemyAuthoring = collision.gameObject.GetComponent<EnemiesAuthoring>();
             if (enemyAuthoring is not null)
             {
@@ -30,6 +31,8 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
             {
                 Poultry.CollidedWithGround();
             }
+            Poultry.CollidedWithNotGround();
+            
         }
         public void AddForce(Vector3 directionalForce)
         {

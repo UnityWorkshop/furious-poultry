@@ -1,4 +1,6 @@
 
+using System;
+
 namespace com.github.UnityWorkshop.furious_poultry.domain
 {
     public class Poultry
@@ -20,6 +22,9 @@ namespace com.github.UnityWorkshop.furious_poultry.domain
             _destructionProvider = destructionProvider;
         }
 
+        public bool IsDead => Health <= 0;
+        public bool Destructed;
+
         public void Tick()
         {
             if (HasCollided)
@@ -27,14 +32,15 @@ namespace com.github.UnityWorkshop.furious_poultry.domain
                 Harm(DecayTickDamage);
             }
 
-            if (Health <= 0)
+            if (IsDead)
             {
-                _destructionProvider.Destruct();
+                Destruct();
             }
         }
 
         public void Harm(float damage)
         {
+            Math.Clamp(Health - damage, 0, Health);
             Health -= damage;
         }
 
@@ -50,7 +56,17 @@ namespace com.github.UnityWorkshop.furious_poultry.domain
             IsOnGround = true;
             _destructionProvider.Destruct();
         }
-        
+
+        public void CollidedWithNotGround()
+        {
+            HasCollided = true;
+        }
+
+        private void Destruct()
+        {
+            _destructionProvider.Destruct();
+            Destructed = true;
+        }
         
     }
 }

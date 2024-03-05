@@ -4,10 +4,9 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-    [Serializable]
     public class Path
     {
-        public List<Transform> targets ;
+        public CyclicList<Transform> targets ;
         
     }
 }

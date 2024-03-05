@@ -40,5 +40,19 @@ namespace DefaultNamespace
 
             return _index+1;
         }
+        
+
+        public bool TryGetElementIndex(T nextElement, out int index)
+        {
+            for (index = 0; index < _targets.Count; index++)
+            {
+                var target = _targets[index];
+                if (nextElement.Equals(target))
+                    return true;
+                
+            }
+
+            return false;
+        }
     }
 }

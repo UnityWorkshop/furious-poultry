@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using DefaultNamespace;
+using furious_poultry.unity;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 namespace com.github.UnityWorkshop.furious_poultry.unity
 {
@@ -10,17 +13,20 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
     public class ZeplinAgent : MonoBehaviour
     {
         private NavMeshAgent _navMeshAgent;
+        private PathManager _pathManager;
         private Transform currentTarget;
         private int currentTargetIndex;
         [SerializeField] private float stoppingDistance;
-        [SerializeField] private List<Transform> targets ;
+        [FormerlySerializedAs("targets")] [SerializeField] private List<PathDefinition> paths;
         // Start is called before the first frame update
         void Start()
         {
             _navMeshAgent = GetComponent<NavMeshAgent>();
-            if (!targets.Any())
+            if (!paths.Any())
                 throw new ArgumentException("you stupid");
+            _pathManager = new PathManager(paths);
             ChangeTarget();
+            
         }
 
         // Update is called once per frame
@@ -32,13 +38,13 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
 
         void ChangeTarget()
         {
-            if (currentTarget is null || currentTargetIndex>=targets.Count)
+            if (currentTarget is null || currentTargetIndex>=paths.Count)
             {
-                currentTarget = targets[0];
+                currentTarget = paths[0];
                 currentTargetIndex = 0;
             }
             else
-                currentTarget = targets[currentTargetIndex ++];
+                currentTarget = paths[currentTargetIndex ++];
 
             _navMeshAgent.destination = currentTarget.position;
         }

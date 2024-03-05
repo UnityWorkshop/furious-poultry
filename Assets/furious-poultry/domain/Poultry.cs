@@ -11,6 +11,7 @@ namespace com.github.UnityWorkshop.furious_poultry.domain
         public bool HasCollided { get; private set; }
         public float DecayTickDamage { get; }
         private IDestructionProvider _destructionProvider;
+        private ClampableHealth _healthClamp;
 
         public Poultry(float decayTickDamage, float damage, float health, bool isOnGround, bool hasCollided, IDestructionProvider destructionProvider)
         {
@@ -20,6 +21,7 @@ namespace com.github.UnityWorkshop.furious_poultry.domain
             this.IsOnGround = isOnGround;
             this.HasCollided = hasCollided;
             _destructionProvider = destructionProvider;
+            _healthClamp = new ClampableHealth(Health, 0, health);
         }
 
         public bool IsDead => Health <= 0;
@@ -40,8 +42,7 @@ namespace com.github.UnityWorkshop.furious_poultry.domain
 
         public void Harm(float damage)
         {
-            Math.Clamp(Health - damage, 0, Health);
-            Health -= damage;
+            Health = _healthClamp.DecreaseHealth(damage);
         }
 
         public void CollidedWithEnemy(Warthog enemy)

@@ -5,15 +5,17 @@ namespace com.github.UnityWorkshop.furious_poultry.domain
     public class Warthog
     {
         public float Health { get; private set; }
+        private ClampableHealth _healthClamp;
 
         public Warthog(float health)
         {
             this.Health = health;
+            _healthClamp = new ClampableHealth(Health, 0, health);
         }
 
         public void Damage(float damage)
         {
-            Health = Math.Clamp(Health - damage, 0, Health);
+            Health = _healthClamp.DecreaseHealth(damage);
         }
 
         public void Kill()

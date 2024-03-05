@@ -27,7 +27,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
             if (c.gameObject.CompareTag("Ground"))
             {
                 //Debug.Log("hit ground");
-                Warthog.Kill();
+                Warthog.Landed();
             }
         }
 

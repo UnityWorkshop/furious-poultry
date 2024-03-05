@@ -1,31 +1,25 @@
-using System;
-using com.github.UnityWorkshop.furious_poultry.domain;
+﻿using com.github.UnityWorkshop.furious_poultry.domain;
 using UnityEngine;
 
 namespace com.github.UnityWorkshop.furious_poultry.unity
 {
-    public class EnemiesAuthoring : MonoBehaviour
+    public class WarthogAuthoring : MonoBehaviour
     {
-        public float health = 50;
-        public Enemies Enemy { get; private set; }
+        public WarthogDefinition WarthogDefinition;
+        public Warthog Warthog { get; private set; }
 
-        private void Start()
+        public void Start()
         {
-            Enemy = new Enemies(health);
+            Warthog = new Warthog(WarthogDefinition.health);
         }
 
         public void Update()
         {
-            if (Enemy.Health <= 0)
+            if (Warthog.IsDead)
             {
                 Destroy(gameObject);
                 //Debug.Log("Got'em");
             }
-        }
-
-        public void Damage(int damage)
-        {
-            health -= damage;
         }
 
         public void OnCollisionEnter(Collision c)
@@ -33,8 +27,13 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
             if (c.gameObject.CompareTag("Ground"))
             {
                 //Debug.Log("hit ground");
-                health = 0;
+                Warthog.Landed();
             }
+        }
+
+        public void Damage(int dmg)
+        {
+            Warthog.Damage(dmg);
         }
     }
 }

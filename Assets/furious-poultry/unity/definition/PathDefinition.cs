@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using DefaultNamespace;
 using furious_poultry.domain;
 using UnityEngine;
 
@@ -11,5 +12,6 @@ namespace furious_poultry.unity
         [SerializeField] List<Transform> targets;
 
         public List<UnityEngine.Transform> Targets => targets;
+        
     }
 }

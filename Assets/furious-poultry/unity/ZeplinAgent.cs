@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using DefaultNamespace;
+using furious_poultry.domain;
 using furious_poultry.unity;
 using UnityEngine;
 using UnityEngine.AI;
@@ -15,9 +16,8 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
         private NavMeshAgent _navMeshAgent;
         private PathManager _pathManager;
         private Transform currentTarget;
-        private int currentTargetIndex;
         [SerializeField] private float stoppingDistance;
-        [FormerlySerializedAs("targets")] [SerializeField] private List<PathDefinition> paths;
+        [FormerlySerializedAs("targets")] [SerializeField] private List<IPath> paths;
         // Start is called before the first frame update
         void Start()
         {
@@ -34,18 +34,14 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
         {
             if (Vector3.Distance(transform.position, currentTarget.position )<= stoppingDistance)
                 ChangeTarget();
+            
+            if (Input.GetKeyDown(KeyCode.A))
+                _pathManager.StartToChangePaths();
         }
 
         void ChangeTarget()
         {
-            if (currentTarget is null || currentTargetIndex>=paths.Count)
-            {
-                currentTarget = paths[0];
-                currentTargetIndex = 0;
-            }
-            else
-                currentTarget = paths[currentTargetIndex ++];
-
+            currentTarget = _pathManager.GetNewTarget();
             _navMeshAgent.destination = currentTarget.position;
         }
     }

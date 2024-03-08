@@ -7,7 +7,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
         [SerializeField] private int pelletAmount = 9;
         [SerializeField] private Rigidbody pelletPrefab;
         [SerializeField] private float pelletSpeed = 1;// 1 = temp
-        [SerializeField] private float pelletSpread = 0.01f;
+        [SerializeField] private float pelletSpread = 0.1f;
         [SerializeField] private Transform shotPosition;
     
         private bool _abilityUsed;
@@ -37,7 +37,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
                 rotation.z += RandomRotationDeviation();
                 Quaternion rotationQuaternion = Quaternion.Euler(rotation);
                 Rigidbody pellet = Instantiate(pelletPrefab, shotPosition.position, rotationQuaternion);
-                Vector3 shotForce = transform.forward * pelletSpeed ;
+                Vector3 shotForce = pellet.transform.forward * pelletSpeed ;
                 pellet.AddForce(shotForce);
             }
         }

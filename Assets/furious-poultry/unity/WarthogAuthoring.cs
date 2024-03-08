@@ -20,7 +20,11 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
                 Destroy(gameObject);
                 //Debug.Log("Got'em");
             }
+
+            //CheckCollision();
         }
+
+        
 
         public void OnCollisionEnter(Collision c)
         {
@@ -34,6 +38,11 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
         public void Damage(int dmg)
         {
             Warthog.Damage(dmg);
+        }
+        
+        void CheckCollision()
+        {
+            if (transform.distance(pelle))
         }
     }
 }

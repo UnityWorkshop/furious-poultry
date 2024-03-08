@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using com.github.UnityWorkshop.furious_poultry.domain;
+using furious_poultry.unity;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -10,21 +11,18 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
 {
     public class BallYeeter : MonoBehaviour
     { 
-        [SerializeField] private float forceValue;
-        [FormerlySerializedAs("ballPrefab")] [SerializeField] private List <PoultryAuthoring> ballPrefabs;
+        [SerializeField] private List <PoultryAuthoring> ballPrefabs;
         [SerializeField] private Transform yeetPos;
 
         [SerializeField] private Transform zeplinYeetPos;
         [SerializeField] private Transform currentFocus;
-    
-    
-        public int sensX;
-        public int sensY;
 
         private float _xRotation;
         private float _yRotation;
         private ClampableIndex _currentPrefabIndex;
         private PoultryAuthoring _currentPoultryAuthoring;
+
+        [SerializeField] BallYeeterDefinition ballYeeterDefinition;
     
         void Start()
         {
@@ -66,8 +64,8 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
     
         private void MouseLook() // actual name for looking around with a mouse in a game source: wikipedia
         {
-            float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
-            float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
+            float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * ballYeeterDefinition.sensX;
+            float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * ballYeeterDefinition.sensY;
 
             _yRotation += mouseX;
             _xRotation -= mouseY;
@@ -102,7 +100,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
             if (currentFocus == zeplinYeetPos)
             {
                 DestroyAllAbilityLeftovers();
-                Vector3 yeetPower = transform.forward * forceValue;
+                Vector3 yeetPower = transform.forward * ballYeeterDefinition.forceValue;
                 _currentPoultryAuthoring = Instantiate(ballPrefabs[_currentPrefabIndex.Index], yeetPos.position, Quaternion.identity);
                 _currentPoultryAuthoring.Initialize();
                 _currentPoultryAuthoring.AddForce(yeetPower);  

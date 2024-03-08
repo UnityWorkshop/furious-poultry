@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -53,6 +54,11 @@ namespace DefaultNamespace
             }
 
             return false;
+        }
+
+        public List<T> ToList()
+        {
+            return _targets.ToList();
         }
     }
 }

@@ -51,7 +51,8 @@ namespace DefaultNamespace
         
         public Transform GetNewTarget()
         {
-            TryToChangePaths(currentTarget);
+            if (changingPaths)
+                TryToChangePaths(currentTarget);
         
             if (currentTarget is null || currentTargetIndex>=_paths.GetCurrent().Targets.Count)
             {

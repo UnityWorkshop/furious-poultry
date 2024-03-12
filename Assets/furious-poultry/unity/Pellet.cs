@@ -9,24 +9,17 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
         private Rigidbody body;
         private float damage;
         
-        public Pellet(Rigidbody pelletPrefab,Vector3 shotPosition,Quaternion rotationQuaternion, float pelletdamage, float pelletSpeed)
+        public void Instantiate(float pelletdamage)
         {
-            body = Instantiate(pelletPrefab, shotPosition, rotationQuaternion);
             damage = pelletdamage;
-            Vector3 shotForce = transform.forward * pelletSpeed ;
-            AddForce(shotForce);
-        }
-
-        public void AddForce(Vector3 force)
-        {
-            body.AddForce(force);
+            
         }
 
         private void OnCollisionEnter(Collision other)
         {
-            if (other.gameObject.TryGetComponent<Warthog>(out Warthog warthog))
+            if (other.gameObject.TryGetComponent<WarthogAuthoring>(out WarthogAuthoring warthogAuthoring))
             {
-                warthog.Damage(damage);
+                warthogAuthoring.Warthog.Damage(damage);
             }
         }
     }

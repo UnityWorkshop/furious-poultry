@@ -37,7 +37,9 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
                 rotation.y += RandomRotationDeviation();
                 rotation.z += RandomRotationDeviation();
                 Quaternion rotationQuaternion = Quaternion.Euler(rotation);
-                Pellet pellet = new Pellet(pelletPrefab, shotPosition, rotationQuaternion);
+                Rigidbody pellet = Instantiate(pelletPrefab, transform.position, rotationQuaternion);
+                Pellet component = pellet.GetComponent<Pellet>();
+                component.Instantiate(pelletDamage);
                 Vector3 shotForce = pellet.transform.forward * pelletSpeed ;
                 pellet.AddForce(shotForce);
             }
@@ -47,10 +49,6 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
         {
             return Random.Range(-pelletSpread, pelletSpread);
         }
-
-        private Vector3 ShotPosition()
-        {
-            return transform.position ; // todo: transform.position + buffer distance in viewing direction
-        }
+        
     }
 }

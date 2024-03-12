@@ -16,6 +16,12 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
             body.AddForce(force);
         }
 
-        
+        private void OnCollisionEnter(Collision other)
+        {
+            if (other.gameObject.TryGetComponent<Warthog>(out Warthog warthog))
+            {
+                warthog.Damage(damage);
+            }
+        }
     }
 }

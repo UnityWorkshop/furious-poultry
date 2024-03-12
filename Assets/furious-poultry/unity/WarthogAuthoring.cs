@@ -40,9 +40,5 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
             Warthog.Damage(dmg);
         }
         
-        void CheckCollision()
-        {
-            if (transform.distance(pelle))
-        }
     }
 }

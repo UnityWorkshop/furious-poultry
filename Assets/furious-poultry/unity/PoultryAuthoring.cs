@@ -6,7 +6,7 @@ using Vector3 = UnityEngine.Vector3;
 namespace com.github.UnityWorkshop.furious_poultry.unity
 {
     [RequireComponent(typeof(Rigidbody))]
-    public abstract class PoultryAuthoring : MonoBehaviour, IDestructionProvider
+    public abstract class PoultryAuthoring : MonoBehaviour//, IDestructionProvider
     {
         public PoultryDefinition PoultryDefinition;
         private Rigidbody _rigidbody;

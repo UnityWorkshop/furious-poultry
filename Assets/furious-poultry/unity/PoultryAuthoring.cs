@@ -25,7 +25,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
             WarthogAuthoring enemyAuthoring = collision.gameObject.GetComponent<WarthogAuthoring>();
             if (enemyAuthoring is not null)
             {
-                Poultry.CollidedWithEnemy(enemyAuthoring.Warthog);
+                PoultryService.CollidedWithEnemy(enemyAuthoring.Warthog);
             }
             
             if (collision.gameObject.CompareTag("Ground"))

@@ -15,9 +15,12 @@ namespace com.github.UnityWorkshop.furious_poultry.application.services
             _poultry = poultry;
         }
 
-        public void IncomingCollision()
+        public void CollidedWithEnemy(Warthog warthog)
         {
-            _destructionProvider.Destruct();
+            _poultry.CollidedWithEnemy(warthog);
+
+            if (_poultry.IsDead)
+                _destructionProvider.Destruct();
         }
         
         public void Tick()

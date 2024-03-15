@@ -14,14 +14,6 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
 
         public override void DoPrimaryAbility()
         {
-        
-            ShootShotgun();
-        
-        }
-    
-
-        private void ShootShotgun()
-        {
             if (_abilityUsed) return;
             _abilityUsed = true;
             for (int i = 0; i < pelletAmount; i++) // not optimal

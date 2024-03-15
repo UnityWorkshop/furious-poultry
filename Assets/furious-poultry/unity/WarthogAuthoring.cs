@@ -1,4 +1,5 @@
 ﻿using com.github.UnityWorkshop.furious_poultry.domain;
+using com.github.UnityWorkshop.furious_poultry.unity.definition;
 using UnityEngine;
 
 namespace com.github.UnityWorkshop.furious_poultry.unity

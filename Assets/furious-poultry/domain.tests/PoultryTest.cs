@@ -8,7 +8,9 @@ namespace furious_poultry.domain.tests
         [Test]
         public void Harm_ReceivedDamage()
         {
-            var poultry = new Poultry(1, 10, 100, false, false);
+            var poultry = new PoultryBuilder()
+                .UseHealth(100)
+                .Build();
 
             poultry.Harm(10);
             

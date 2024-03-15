@@ -1,6 +1,7 @@
+using com.github.UnityWorkshop.furious_poultry.application.interfaces;
 using com.github.UnityWorkshop.furious_poultry.domain;
 
-namespace furious_poultry.service.services
+namespace com.github.UnityWorkshop.furious_poultry.application.services
 {
     public class PoultryService
     {

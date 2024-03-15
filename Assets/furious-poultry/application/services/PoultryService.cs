@@ -38,14 +38,19 @@ namespace com.github.UnityWorkshop.furious_poultry.application.services
         
         private void Destruct()
         {
+            _poultry.Kill();
             _destructionProvider.Destruct();
-            _poultry.Destructed = true;
         }
         
         public void CollidedWithGround()
         {
-            _poultry.IsOnGround = true;
+            _poultry.Collided();
             _destructionProvider.Destruct();
+        }
+
+        public void CollidedWithThing()
+        {
+            _poultry.Collided();
         }
     }
 }

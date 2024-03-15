@@ -32,8 +32,8 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
             {
                 PoultryService.CollidedWithGround();
             }
-            Poultry.CollidedWithNotGround();
             
+            PoultryService.CollidedWithThing();
         }
         public void AddForce(Vector3 directionalForce)
         {
@@ -42,7 +42,10 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
         }
 
         //public abstract Rigidbody PoultryAbstractRigidBody();
-        public abstract bool IsDead();
+        public bool IsDead()
+        {
+            return Poultry.IsDead;
+        }
 
         public abstract void DoPrimaryAbility();
         public void Destruct()

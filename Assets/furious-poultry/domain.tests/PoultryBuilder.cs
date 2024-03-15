@@ -8,12 +8,11 @@ namespace furious_poultry.domain.tests
         private float _decayTickDamage = 1; 
         private float _damage = 10;
         private float _health = 10;
-        private bool _isOnGround = true;
         private bool _hasCollided = false;
         
         public Poultry Build()
         {
-            return new Poultry(_decayTickDamage, _damage, _health, _isOnGround, _hasCollided);
+            return new Poultry(_decayTickDamage, _damage, _health, _hasCollided);
         }
 
         public PoultryBuilder UseHealth(float health)

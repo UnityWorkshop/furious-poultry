@@ -1,8 +1,7 @@
 using com.github.UnityWorkshop.furious_poultry.domain;
-using NSubstitute;
 using NUnit.Framework;
 
-namespace furious_poultry.unity.definition.domain.tests
+namespace furious_poultry.domain.tests
 {
     public class PoultryTest
     {

@@ -1,5 +1,6 @@
+using com.github.UnityWorkshop.furious_poultry.application.services;
 using com.github.UnityWorkshop.furious_poultry.domain;
-using furious_poultry.unity;
+using com.github.UnityWorkshop.furious_poultry.unity.definition;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
@@ -8,14 +9,15 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
     [RequireComponent(typeof(Rigidbody))]
     public abstract class PoultryAuthoring : MonoBehaviour//, IDestructionProvider
     {
-        public PoultryDefinition PoultryDefinition;
+        public PoultryDefinition poultryDefinition;
         private Rigidbody _rigidbody;
         protected Poultry Poultry;
+        protected PoultryService PoultryService;
         
         
         private void FixedUpdate()  
         {
-            Poultry.Tick();
+            PoultryService.Tick();
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -28,7 +30,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
             
             if (collision.gameObject.CompareTag("Ground"))
             {
-                Poultry.CollidedWithGround();
+                PoultryService.CollidedWithGround();
             }
             Poultry.CollidedWithNotGround();
             
@@ -50,7 +52,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
 
         public void Initialize()
         {
-            Poultry = PoultryDefinition.ToPoultry(this);
+            Poultry = poultryDefinition.ToPoultry();
         }
     }
 }

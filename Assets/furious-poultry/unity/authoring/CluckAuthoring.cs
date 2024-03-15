@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace com.github.UnityWorkshop.furious_poultry.unity
 {
-    public class Cluck : PoultryAuthoring
+    public class CluckAuthoring : PoultryAuthoring
     {
 
         public override void DoPrimaryAbility()

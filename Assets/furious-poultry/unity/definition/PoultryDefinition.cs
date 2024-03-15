@@ -14,7 +14,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.definition
 
         public Poultry ToPoultry()
         {
-            return new Poultry(decayTickDamage, damage, health, isOnGround, hasCollided);
+            return new Poultry(decayTickDamage, damage, health, hasCollided);
         }
 
     }

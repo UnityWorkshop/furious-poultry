@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace com.github.UnityWorkshop.furious_poultry.unity
 {
-    public class Beagle : PoultryAuthoring
+    public class BeagleAuthoring : PoultryAuthoring
     {
         [SerializeField] private int pelletAmount = 9;
         [SerializeField] private Rigidbody pelletPrefab;

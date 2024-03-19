@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace com.github.UnityWorkshop.furious_poultry.unity
 {
-    public class Beagle : PoultryAuthoring
+    public class BeagleAuthoring : PoultryAuthoring
     {
         [SerializeField] private int pelletAmount = 9;
         [SerializeField] private Rigidbody pelletPrefab;
@@ -12,21 +12,8 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
         [SerializeField] private Transform shotPosition;
     
         private bool _abilityUsed;
-        
-        public override bool IsDead()
-        {
-            return Poultry.IsOnGround;
-        }
 
         public override void DoPrimaryAbility()
-        {
-        
-            ShootShotgun();
-        
-        }
-    
-
-        private void ShootShotgun()
         {
             if (_abilityUsed) return;
             _abilityUsed = true;

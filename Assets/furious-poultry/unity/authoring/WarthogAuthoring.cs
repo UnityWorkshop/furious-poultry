@@ -36,7 +36,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
             }
         }
 
-        public void Damage(int dmg)
+        public void Damage(float dmg)
         {
             Warthog.Damage(dmg);
         }

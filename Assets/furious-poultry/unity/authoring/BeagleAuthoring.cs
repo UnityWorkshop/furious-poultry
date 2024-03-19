@@ -1,6 +1,7 @@
+
 using UnityEngine;
 
-namespace com.github.UnityWorkshop.furious_poultry.unity
+namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
 {
     public class BeagleAuthoring : PoultryAuthoring
     {
@@ -12,10 +13,11 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
         [SerializeField] private Transform shotPosition;
     
         private bool _abilityUsed;
-
+        
         public override void DoPrimaryAbility()
         {
             if (_abilityUsed) return;
+            abilityLeftOvers.Clear();
             _abilityUsed = true;
             for (int i = 0; i < pelletAmount; i++) // not optimal
             {
@@ -25,6 +27,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
                 rotation.z += RandomRotationDeviation();
                 Quaternion rotationQuaternion = Quaternion.Euler(rotation);
                 Pellet pellet = Instantiate(pelletPrefab, transform.position, rotationQuaternion);
+                abilityLeftOvers.Add(pellet);
                 pellet.initialize(pelletDamage, pelletSpeed, rotation);
             }
         }

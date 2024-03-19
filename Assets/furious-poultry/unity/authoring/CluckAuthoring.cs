@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace com.github.UnityWorkshop.furious_poultry.unity
+namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
 {
     public class CluckAuthoring : PoultryAuthoring
     {

@@ -4,23 +4,18 @@ using UnityEngine;
 
 namespace com.github.UnityWorkshop.furious_poultry.unity
 {
+    [RequireComponent(typeof(Rigidbody))]
     public class Pellet:MonoBehaviour
     {
-        private Rigidbody body;
         private float damage;
         
-        public Pellet(Rigidbody pelletPrefab,Vector3 shotPosition,Quaternion rotationQuaternion, float pelletdamage, float pelletSpeed)
+        public void initialize(float pelletdamage, float pelletspeed, Vector3 pelletrotation)
         {
-            body = Instantiate(pelletPrefab, shotPosition, rotationQuaternion);
             damage = pelletdamage;
-            Vector3 shotForce = transform.forward * pelletSpeed ;
-            AddForce(shotForce);
+            GetComponent<Rigidbody>().AddForce(pelletspeed*pelletrotation);
         }
-
-        public void AddForce(Vector3 force)
-        {
-            body.AddForce(force);
-        }
+        
+        
 
         private void OnCollisionEnter(Collision other)
         {

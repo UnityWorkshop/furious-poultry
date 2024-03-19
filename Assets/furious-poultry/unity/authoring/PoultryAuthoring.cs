@@ -1,3 +1,4 @@
+using com.github.UnityWorkshop.furious_poultry.application.interfaces;
 using com.github.UnityWorkshop.furious_poultry.application.services;
 using com.github.UnityWorkshop.furious_poultry.domain;
 using com.github.UnityWorkshop.furious_poultry.unity.definition;
@@ -7,7 +8,7 @@ using Vector3 = UnityEngine.Vector3;
 namespace com.github.UnityWorkshop.furious_poultry.unity
 {
     [RequireComponent(typeof(Rigidbody))]
-    public abstract class PoultryAuthoring : MonoBehaviour//, IDestructionProvider
+    public abstract class PoultryAuthoring : MonoBehaviour, IDestructionProvider
     {
         public PoultryDefinition poultryDefinition;
         private Rigidbody _rigidbody;
@@ -56,6 +57,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
         public void Initialize()
         {
             Poultry = poultryDefinition.ToPoultry();
+            PoultryService = new PoultryService(this, Poultry);
         }
     }
 }

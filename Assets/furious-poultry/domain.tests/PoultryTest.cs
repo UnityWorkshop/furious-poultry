@@ -9,7 +9,6 @@ namespace furious_poultry.domain.tests
         public void Harm_ReceivedDamage()
         {
             var poultry = new PoultryBuilder()
-                .UseHealth(100)
                 .Build();
 
             poultry.Harm(10);
@@ -20,7 +19,8 @@ namespace furious_poultry.domain.tests
         [Test]
         public void Harm_YieldsDeath()
         {
-            var poultry = new Poultry(1, 10, 100, false);
+            var poultry = new PoultryBuilder()
+                .Build();
             
             poultry.Harm(200);
             
@@ -30,7 +30,8 @@ namespace furious_poultry.domain.tests
         [Test]
         public void CollidedWithNotGround_CollisionBoolState()
         {
-            var poultry = new Poultry(1, 10, 100, false);
+            var poultry = new PoultryBuilder()
+                .Build();
 
             poultry.Collided();
             
@@ -40,7 +41,8 @@ namespace furious_poultry.domain.tests
         [Test]
         public void CollidedWithEnemy_CollisionBoolState()
         {
-            var poultry = new Poultry(1, 10, 100, false);
+            var poultry = new PoultryBuilder()
+                .Build();
             var enemy = new Warthog(100);
 
             poultry.CollidedWithEnemy(enemy);
@@ -51,7 +53,8 @@ namespace furious_poultry.domain.tests
         [Test]
         public void CollidedWithEnemy_EnemyHarmed()
         {
-            var poultry = new Poultry(1, 10, 100, false);
+            var poultry = new PoultryBuilder()
+                .Build();
             var enemy = new Warthog(100);
 
             poultry.CollidedWithEnemy(enemy);
@@ -62,7 +65,8 @@ namespace furious_poultry.domain.tests
         [Test]
         public void CollidedWithEnemy_PoultryHarmed()
         {
-            var poultry = new Poultry(1, 10, 100, false);
+            var poultry = new PoultryBuilder()
+                .Build();
             var enemy = new Warthog(100);
 
             poultry.CollidedWithEnemy(enemy);

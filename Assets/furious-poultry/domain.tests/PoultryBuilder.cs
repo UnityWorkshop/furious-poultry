@@ -7,7 +7,7 @@ namespace furious_poultry.domain.tests
     {
         private float _decayTickDamage = 1; 
         private float _damage = 10;
-        private float _health = 10;
+        private float _health = 100;
         private bool _hasCollided = false;
         
         public Poultry Build()

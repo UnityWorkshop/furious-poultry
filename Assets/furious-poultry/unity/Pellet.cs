@@ -19,7 +19,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
 
         private void OnCollisionEnter(Collision other)
         {
-            if (other.gameObject.TryGetComponent<Warthog>(out Warthog warthog))
+            if (other.gameObject.TryGetComponent<WarthogAuthoring>(out WarthogAuthoring warthog))
             {
                 warthog.Damage(damage);
             }

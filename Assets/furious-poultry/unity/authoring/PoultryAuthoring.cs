@@ -23,6 +23,9 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
 
         private void OnCollisionEnter(Collision collision)
         {
+            if (collision.gameObject.layer == 7)
+                return;
+            
             WarthogAuthoring enemyAuthoring = collision.gameObject.GetComponent<WarthogAuthoring>();
             if (enemyAuthoring is not null)
             {

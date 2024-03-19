@@ -1,5 +1,6 @@
 using System;
 using com.github.UnityWorkshop.furious_poultry.domain;
+using com.github.UnityWorkshop.furious_poultry.unity.authoring;
 using UnityEngine;
 
 namespace com.github.UnityWorkshop.furious_poultry.unity

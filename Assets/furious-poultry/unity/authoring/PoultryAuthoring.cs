@@ -1,11 +1,13 @@
+using System.Collections.Generic;
 using com.github.UnityWorkshop.furious_poultry.application.interfaces;
 using com.github.UnityWorkshop.furious_poultry.application.services;
 using com.github.UnityWorkshop.furious_poultry.domain;
 using com.github.UnityWorkshop.furious_poultry.unity.definition;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Vector3 = UnityEngine.Vector3;
 
-namespace com.github.UnityWorkshop.furious_poultry.unity
+namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
 {
     [RequireComponent(typeof(Rigidbody))]
     public abstract class PoultryAuthoring : MonoBehaviour, IDestructionProvider
@@ -14,6 +16,8 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
         private Rigidbody _rigidbody;
         protected Poultry Poultry;
         protected PoultryService PoultryService;
+        
+        [FormerlySerializedAs("AbilityLeftOvers")] public List<Pellet> abilityLeftOvers = new List<Pellet>();
         
         
         private void FixedUpdate()  

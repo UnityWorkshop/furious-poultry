@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using com.github.UnityWorkshop.furious_poultry.domain;
+using com.github.UnityWorkshop.furious_poultry.unity.authoring;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -114,8 +115,9 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
 
         private void DestroyAllAbilityLeftovers()
         {
-            GameObject[] leftoversToDelete = GameObject.FindGameObjectsWithTag("AbilityLeftovers");
-            foreach (GameObject leftOver in leftoversToDelete)
+            //GameObject[] leftoversToDelete = GameObject.FindGameObjectsWithTag("AbilityLeftovers");
+            if (_currentPoultryAuthoring is null) return;
+            foreach (var leftOver in _currentPoultryAuthoring.abilityLeftOvers)
             {
                 Destroy(leftOver);
             }

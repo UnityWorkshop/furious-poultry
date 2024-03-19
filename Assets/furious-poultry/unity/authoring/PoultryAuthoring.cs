@@ -1,21 +1,23 @@
+using com.github.UnityWorkshop.furious_poultry.application.services;
 using com.github.UnityWorkshop.furious_poultry.domain;
-using furious_poultry.unity;
+using com.github.UnityWorkshop.furious_poultry.unity.definition;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
 namespace com.github.UnityWorkshop.furious_poultry.unity
 {
     [RequireComponent(typeof(Rigidbody))]
-    public abstract class PoultryAuthoring : MonoBehaviour, IDestructionProvider
+    public abstract class PoultryAuthoring : MonoBehaviour//, IDestructionProvider
     {
-        public PoultryDefinition PoultryDefinition;
+        public PoultryDefinition poultryDefinition;
         private Rigidbody _rigidbody;
         protected Poultry Poultry;
+        protected PoultryService PoultryService;
         
         
         private void FixedUpdate()  
         {
-            Poultry.Tick();
+            PoultryService.Tick();
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -23,15 +25,15 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
             WarthogAuthoring enemyAuthoring = collision.gameObject.GetComponent<WarthogAuthoring>();
             if (enemyAuthoring is not null)
             {
-                Poultry.CollidedWithEnemy(enemyAuthoring.Warthog);
+                PoultryService.CollidedWithEnemy(enemyAuthoring.Warthog);
             }
             
             if (collision.gameObject.CompareTag("Ground"))
             {
-                Poultry.CollidedWithGround();
+                PoultryService.CollidedWithGround();
             }
-            Poultry.CollidedWithNotGround();
             
+            PoultryService.CollidedWithThing();
         }
         public void AddForce(Vector3 directionalForce)
         {
@@ -40,7 +42,10 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
         }
 
         //public abstract Rigidbody PoultryAbstractRigidBody();
-        public abstract bool IsDead();
+        public bool IsDead()
+        {
+            return Poultry.IsDead;
+        }
 
         public abstract void DoPrimaryAbility();
         public void Destruct()
@@ -50,7 +55,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
 
         public void Initialize()
         {
-            Poultry = PoultryDefinition.ToPoultry(this);
+            Poultry = poultryDefinition.ToPoultry();
         }
     }
 }

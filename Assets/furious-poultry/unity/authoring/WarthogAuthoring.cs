@@ -2,7 +2,7 @@
 using com.github.UnityWorkshop.furious_poultry.unity.definition;
 using UnityEngine;
 
-namespace com.github.UnityWorkshop.furious_poultry.unity
+namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
 {
     public class WarthogAuthoring : MonoBehaviour
     {

@@ -26,5 +26,17 @@ namespace furious_poultry.domain.tests
             _damage = damage;
             return this;
         }
+        
+        public PoultryBuilder UseDecayTickDamage(float damage)
+        {
+            _decayTickDamage = damage;
+            return this;
+        }
+        
+        public PoultryBuilder HasCollided()
+        {
+            _hasCollided = true;
+            return this;
+        }
     }
 }

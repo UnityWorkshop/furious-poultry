@@ -10,7 +10,7 @@ using SystemVector3 = System.Numerics.Vector3;
 
 namespace com.github.UnityWorkshop.furious_poultry.unity
 {
-    public class BallYeeterAuthoring : MonoBehaviour, ITransformProvider
+    public class BallYeeterAuthoring : MonoBehaviour, ITransformProvider, IInputProvider
     { 
         [SerializeField] private List <PoultryAuthoring> ballPrefabs;
         [SerializeField] private Transform yeetPos;
@@ -132,5 +132,9 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
         }
 
         public SystemVector3 Forward => transform.forward.ToSystem();
+        public bool PressedKeySwitchPoultryPrevious => Input.GetKeyDown(KeyCode.A);
+        public bool PressedKeySwitchPoultryNext => Input.GetKeyDown(KeyCode.D);
+        public bool PressedKeyResetPoultry => Input.GetKeyDown(KeyCode.R);
+        public bool PressedKeyShoot => Input.GetKeyDown(KeyCode.Mouse0);
     }
 }

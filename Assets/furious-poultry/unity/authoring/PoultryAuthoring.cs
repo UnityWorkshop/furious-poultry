@@ -17,7 +17,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
         protected Poultry Poultry;
         protected PoultryService PoultryService;
         
-        [FormerlySerializedAs("AbilityLeftOvers")] public List<Pellet> abilityLeftOvers = new List<Pellet>();
+        public List<Pellet> abilityLeftOvers = new List<Pellet>();
         
         
         private void FixedUpdate()  

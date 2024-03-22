@@ -4,15 +4,13 @@ using System.Linq;
 using com.github.UnityWorkshop.furious_poultry.domain;
 using com.github.UnityWorkshop.furious_poultry.unity.authoring;
 using UnityEngine;
-using UnityEngine.Serialization;
-
 
 namespace com.github.UnityWorkshop.furious_poultry.unity
 {
-    public class BallYeeter : MonoBehaviour
+    public class BallYeeterAuthoring : MonoBehaviour
     { 
         [SerializeField] private float forceValue;
-        [FormerlySerializedAs("ballPrefab")] [SerializeField] private List <PoultryAuthoring> ballPrefabs;
+        [SerializeField] private List <PoultryAuthoring> ballPrefabs;
         [SerializeField] private Transform yeetPos;
 
         [SerializeField] private Transform zeplinYeetPos;
@@ -130,6 +128,5 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
                 _currentPoultryAuthoring.Destruct();
             }
         }
-    
     }
 }

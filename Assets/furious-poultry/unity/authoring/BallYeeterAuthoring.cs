@@ -1,15 +1,17 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using com.github.UnityWorkshop.furious_poultry.application.interfaces;
+using com.github.UnityWorkshop.furious_poultry.application.services;
 using com.github.UnityWorkshop.furious_poultry.domain;
 using com.github.UnityWorkshop.furious_poultry.unity.authoring;
 using UnityEngine;
+using SystemVector3 = System.Numerics.Vector3;
 
 namespace com.github.UnityWorkshop.furious_poultry.unity
 {
-    public class BallYeeterAuthoring : MonoBehaviour
+    public class BallYeeterAuthoring : MonoBehaviour, ITransformProvider
     { 
-        [SerializeField] private float forceValue;
         [SerializeField] private List <PoultryAuthoring> ballPrefabs;
         [SerializeField] private Transform yeetPos;
 
@@ -24,6 +26,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
         private float _yRotation;
         private ClampableIndex _currentPrefabIndex;
         private PoultryAuthoring _currentPoultryAuthoring;
+        protected BallYeeterService BallYeeterService;
     
         void Start()
         {
@@ -101,10 +104,9 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
             if (currentFocus == zeplinYeetPos)
             {
                 DestroyAllAbilityLeftovers();
-                Vector3 yeetPower = transform.forward * forceValue;
                 _currentPoultryAuthoring = Instantiate(ballPrefabs[_currentPrefabIndex.Index], yeetPos.position, Quaternion.identity);
                 _currentPoultryAuthoring.Initialize();
-                _currentPoultryAuthoring.AddForce(yeetPower);  
+                _currentPoultryAuthoring.AddForce(BallYeeterService.CalculatedYeetPower().ToUnity());  
                 currentFocus = _currentPoultryAuthoring.transform;
                 return;
             }
@@ -128,5 +130,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
                 _currentPoultryAuthoring.Destruct();
             }
         }
+
+        public SystemVector3 Forward => transform.forward.ToSystem();
     }
 }

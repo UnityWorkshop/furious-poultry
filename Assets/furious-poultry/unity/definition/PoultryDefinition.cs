@@ -8,7 +8,6 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.definition
     { 
         public float damage = 10;
         public float health = 100;
-        public bool isOnGround;
         public bool hasCollided;
         public float decayTickDamage = 1;
 

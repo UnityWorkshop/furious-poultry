@@ -55,7 +55,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
             return Poultry.IsDead;
         }
 
-        public abstract void DoPrimaryAbility();
+        public abstract void DoPrimaryAbility(Vector3 direction);
         public void Destruct()
         {
             Destroy(gameObject);

@@ -8,22 +8,25 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
     [RequireComponent(typeof(Rigidbody))]
     public class Pellet:MonoBehaviour
     {
-        private float damage;
+        Rigidbody _rigidbody;
+        float _damage;
         
-        public void initialize(float pelletdamage, float pelletspeed, Vector3 pelletrotation)
+        public void Initialize(float pelletdamage)
         {
-            damage = pelletdamage;
-            GetComponent<Rigidbody>().AddForce(pelletspeed*pelletrotation);
+            _rigidbody = GetComponent<Rigidbody>();
+            _damage = pelletdamage;
         }
-        
-        
 
         private void OnCollisionEnter(Collision other)
         {
-            if (other.gameObject.TryGetComponent<WarthogAuthoring>(out WarthogAuthoring warthog))
+            if (other.gameObject.TryGetComponent<WarthogAuthoring>(out WarthogAuthoring warthogAuthoring))
             {
-                warthog.Damage(damage);
+                warthogAuthoring.Warthog.Damage(_damage);
             }
+        }
+        public void AddForce(Vector3 shotForce)
+        {
+            _rigidbody.AddForce(shotForce);
         }
     }
 }

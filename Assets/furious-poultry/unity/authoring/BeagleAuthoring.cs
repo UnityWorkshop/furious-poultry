@@ -14,7 +14,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
     
         private bool _abilityUsed;
         
-        public override void DoPrimaryAbility()
+        public override void DoPrimaryAbility(Vector3 direction)
         {
             if (_abilityUsed) return;
             abilityLeftOvers.Clear();
@@ -27,10 +27,13 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
                 rotation.z += RandomRotationDeviation();
                 Quaternion rotationQuaternion = Quaternion.Euler(rotation);
                 Pellet pellet = Instantiate(pelletPrefab, shotPosition.position, rotationQuaternion);
+                pellet.Initialize(pelletDamage);
+                Vector3 shotForce = direction * pelletSpeed ;
                 abilityLeftOvers.Add(pellet);
-                pellet.initialize(pelletDamage, pelletSpeed, rotation);
+                pellet.AddForce(shotForce);
             }
         }
+
 
         private float RandomRotationDeviation()
         {

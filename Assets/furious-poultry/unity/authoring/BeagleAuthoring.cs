@@ -1,11 +1,12 @@
+
 using UnityEngine;
 
-namespace com.github.UnityWorkshop.furious_poultry.unity
+namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
 {
-    public class Beagle : PoultryAuthoring
+    public class BeagleAuthoring : PoultryAuthoring
     {
         [SerializeField] private int pelletAmount = 9;
-        [SerializeField] private Rigidbody pelletPrefab;
+        [SerializeField] private Pellet pelletPrefab;
         [SerializeField] private float pelletSpeed = 1;// 1 = temp
         [SerializeField] private float pelletSpread = 0.1f;
         [SerializeField] private float pelletDamage = 0.1f;
@@ -21,6 +22,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
         public override void DoPrimaryAbility(Vector3 direction)
         {
             if (_abilityUsed) return;
+            abilityLeftOvers.Clear();
             _abilityUsed = true;
             for (int i = 0; i < pelletAmount; i++) // not optimal
             {
@@ -33,6 +35,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
                 Pellet component = pellet.GetComponent<Pellet>();
                 component.Initialize(pelletDamage);
                 Vector3 shotForce = direction * pelletSpeed ;
+                abilityLeftOvers.Add(pellet);
                 pellet.AddForce(shotForce);
             }
         }

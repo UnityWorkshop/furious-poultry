@@ -1,17 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using com.github.UnityWorkshop.furious_poultry.application.interfaces;
+using com.github.UnityWorkshop.furious_poultry.application.services;
 using com.github.UnityWorkshop.furious_poultry.domain;
+using com.github.UnityWorkshop.furious_poultry.unity.authoring;
 using UnityEngine;
-using UnityEngine.Serialization;
-
+using SystemVector3 = System.Numerics.Vector3;
 
 namespace com.github.UnityWorkshop.furious_poultry.unity
 {
-    public class BallYeeter : MonoBehaviour
+    public class BallYeeterAuthoring : MonoBehaviour, ITransformProvider, IInputProvider
     { 
-        [SerializeField] private float forceValue;
-        [FormerlySerializedAs("ballPrefab")] [SerializeField] private List <PoultryAuthoring> ballPrefabs;
+        [SerializeField] private List <PoultryAuthoring> ballPrefabs;
         [SerializeField] private Transform yeetPos;
 
         [SerializeField] private Transform zeplinYeetPos;
@@ -25,6 +26,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
         private float _yRotation;
         private ClampableIndex _currentPrefabIndex;
         private PoultryAuthoring _currentPoultryAuthoring;
+        protected BallYeeterService BallYeeterService;
     
         void Start()
         {
@@ -102,10 +104,9 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
             if (currentFocus == zeplinYeetPos)
             {
                 DestroyAllAbilityLeftovers();
-                Vector3 yeetPower = transform.forward * forceValue;
                 _currentPoultryAuthoring = Instantiate(ballPrefabs[_currentPrefabIndex.Index], yeetPos.position, Quaternion.identity);
                 _currentPoultryAuthoring.Initialize();
-                _currentPoultryAuthoring.AddForce(yeetPower);  
+                _currentPoultryAuthoring.AddForce(BallYeeterService.CalculatedYeetPower().ToUnity());  
                 currentFocus = _currentPoultryAuthoring.transform;
                 return;
             }
@@ -114,8 +115,9 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
 
         private void DestroyAllAbilityLeftovers()
         {
-            GameObject[] leftoversToDelete = GameObject.FindGameObjectsWithTag("AbilityLeftovers");
-            foreach (GameObject leftOver in leftoversToDelete)
+            //GameObject[] leftoversToDelete = GameObject.FindGameObjectsWithTag("AbilityLeftovers");
+            if (_currentPoultryAuthoring is null) return;
+            foreach (var leftOver in _currentPoultryAuthoring.abilityLeftOvers)
             {
                 Destroy(leftOver);
             }
@@ -128,6 +130,11 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
                 _currentPoultryAuthoring.Destruct();
             }
         }
-    
+
+        public SystemVector3 Forward => transform.forward.ToSystem();
+        public bool PressedKeySwitchPoultryPrevious => Input.GetKeyDown(KeyCode.A);
+        public bool PressedKeySwitchPoultryNext => Input.GetKeyDown(KeyCode.D);
+        public bool PressedKeyResetPoultry => Input.GetKeyDown(KeyCode.R);
+        public bool PressedKeyShoot => Input.GetKeyDown(KeyCode.Mouse0);
     }
 }

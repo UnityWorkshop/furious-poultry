@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -232,8 +232,8 @@ Transform:
   m_GameObject: {fileID: 654241201}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5478762, y: 0.577, z: 4.4332647}
-  m_LocalScale: {x: 2.096, y: 2.096, z: 2.096}
+  m_LocalPosition: {x: -1.5478762, y: 36.97, z: 4.4332647}
+  m_LocalScale: {x: 20, y: 2.096, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -721,13 +721,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1202044257}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.6211252, y: 0.2562081, z: 0.06914955, w: 0.7374139}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 118.283005, y: -101.828, z: -117.507996}
 --- !u!1 &1408614507
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,7 +1085,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4fa5382122d754141a364f95d097886d, type: 2}
+  - {fileID: 2100000, guid: f380bc6f56a58b94abb36bd90413c263, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1125,7 +1125,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 61.997, y: 61.997, z: 61.997}
+  m_LocalScale: {x: 61.997, y: 61.997, z: 61.23878}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1300,12 +1300,24 @@ PrefabInstance:
       value: Warthog
       objectReference: {fileID: 0}
     - target: {fileID: 5153458878857841689, guid: b78d63f8b0ad9bf4f935f1739bdd590c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.1575282
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153458878857841689, guid: b78d63f8b0ad9bf4f935f1739bdd590c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.8991
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153458878857841689, guid: b78d63f8b0ad9bf4f935f1739bdd590c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.8991
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153458878857841689, guid: b78d63f8b0ad9bf4f935f1739bdd590c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.478
       objectReference: {fileID: 0}
     - target: {fileID: 5153458878857841689, guid: b78d63f8b0ad9bf4f935f1739bdd590c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.132
+      value: 39.95
       objectReference: {fileID: 0}
     - target: {fileID: 5153458878857841689, guid: b78d63f8b0ad9bf4f935f1739bdd590c, type: 3}
       propertyPath: m_LocalPosition.z

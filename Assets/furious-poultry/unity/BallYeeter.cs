@@ -109,7 +109,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
                 currentFocus = _currentPoultryAuthoring.transform;
                 return;
             }
-            _currentPoultryAuthoring.DoPrimaryAbility();
+            _currentPoultryAuthoring.DoPrimaryAbility(transform.forward);
         }
 
         private void DestroyAllAbilityLeftovers()

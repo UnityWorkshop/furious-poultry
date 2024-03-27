@@ -9,7 +9,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
             return Poultry.IsOnGround;
         }
 
-        public override void DoPrimaryAbility()
+        public override void DoPrimaryAbility(Vector3 direction)
         {
             Debug.Log("cluck doesnt have an ability");
         }

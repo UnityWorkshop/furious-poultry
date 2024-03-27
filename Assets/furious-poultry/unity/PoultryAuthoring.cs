@@ -42,7 +42,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
         //public abstract Rigidbody PoultryAbstractRigidBody();
         public abstract bool IsDead();
 
-        public abstract void DoPrimaryAbility();
+        public abstract void DoPrimaryAbility(Vector3 direction);
         public void Destruct()
         {
             Destroy(gameObject);

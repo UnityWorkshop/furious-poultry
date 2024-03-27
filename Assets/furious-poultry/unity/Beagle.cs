@@ -18,15 +18,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
             return Poultry.IsOnGround;
         }
 
-        public override void DoPrimaryAbility()
-        {
-        
-            ShootShotgun();
-        
-        }
-    
-
-        private void ShootShotgun()
+        public override void DoPrimaryAbility(Vector3 direction)
         {
             if (_abilityUsed) return;
             _abilityUsed = true;
@@ -37,13 +29,14 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
                 rotation.y += RandomRotationDeviation();
                 rotation.z += RandomRotationDeviation();
                 Quaternion rotationQuaternion = Quaternion.Euler(rotation);
-                Rigidbody pellet = Instantiate(pelletPrefab, transform.position, rotationQuaternion);
+                Rigidbody pellet = Instantiate(pelletPrefab, shotPosition.position, rotationQuaternion);
                 Pellet component = pellet.GetComponent<Pellet>();
-                component.Instantiate(pelletDamage);
-                Vector3 shotForce = pellet.transform.forward * pelletSpeed ;
+                component.Initialize(pelletDamage);
+                Vector3 shotForce = direction * pelletSpeed ;
                 pellet.AddForce(shotForce);
             }
         }
+
 
         private float RandomRotationDeviation()
         {

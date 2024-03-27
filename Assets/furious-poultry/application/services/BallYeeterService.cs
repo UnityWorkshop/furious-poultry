@@ -1,8 +1,10 @@
 ﻿using System.Numerics;
-using com.github.UnityWorkshop.furious_poultry.application.interfaces;
+using com.github.UnityWorkshop.Assets.furious_poultry.application.interfaces;
 using com.github.UnityWorkshop.furious_poultry.domain;
+using com.github.UnityWorkshop.furious_poultry.domain.aggregates;
+using com.github.UnityWorkshop.furious_poultry.domain.entities;
 
-namespace com.github.UnityWorkshop.furious_poultry.application.services
+namespace com.github.UnityWorkshop.Assets.furious_poultry.application.services
 {
     public class BallYeeterService
     {

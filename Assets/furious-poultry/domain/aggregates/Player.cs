@@ -1,4 +1,6 @@
-﻿namespace com.github.UnityWorkshop.furious_poultry.domain
+﻿using com.github.UnityWorkshop.furious_poultry.domain.entities;
+
+namespace com.github.UnityWorkshop.furious_poultry.domain.aggregates
 {
     public class Player
     {

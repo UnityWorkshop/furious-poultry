@@ -9,7 +9,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
         private Rigidbody body;
         private float damage;
         
-        public void Instantiate(float pelletdamage)
+        public void Initialize(float pelletdamage)
         {
             damage = pelletdamage;
             

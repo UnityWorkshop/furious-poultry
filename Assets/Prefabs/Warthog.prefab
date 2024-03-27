@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9206178572181906951}
   - component: {fileID: 1825836969637151761}
   - component: {fileID: 3459030967228005711}
-  - component: {fileID: 2891766261880604673}
+  - component: {fileID: 7965301664071757188}
   m_Layer: 0
   m_Name: Warthog
   m_TagString: Untagged
@@ -134,7 +134,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2891766261880604673
+--- !u!114 &7965301664071757188
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,7 +143,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 2400422125844108571}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90d07983b3be0384c998d44cb3e9689a, type: 3}
+  m_Script: {fileID: 11500000, guid: 49c71260414e4a9cad4466cb62a550e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  WarthogDefinition:
+    health: 50

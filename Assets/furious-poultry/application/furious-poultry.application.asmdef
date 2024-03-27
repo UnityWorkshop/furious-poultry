@@ -1,0 +1,18 @@
+{
+    "name": "furious-poultry.application",
+    "rootNamespace": "com.github.UnityWorkshop",
+    "references": [
+        "GUID:af9f40918dfcb2846b5cb8e1992888e7"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        ""
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": true
+}

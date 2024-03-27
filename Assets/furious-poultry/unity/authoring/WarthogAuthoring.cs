@@ -1,7 +1,8 @@
 ﻿using com.github.UnityWorkshop.furious_poultry.domain;
+using com.github.UnityWorkshop.furious_poultry.unity.definition;
 using UnityEngine;
 
-namespace com.github.UnityWorkshop.furious_poultry.unity
+namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
 {
     public class WarthogAuthoring : MonoBehaviour
     {
@@ -20,20 +21,25 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
                 Destroy(gameObject);
                 //Debug.Log("Got'em");
             }
+
+            //CheckCollision();
         }
+
+        
 
         public void OnCollisionEnter(Collision c)
         {
             if (c.gameObject.CompareTag("Ground"))
             {
                 //Debug.Log("hit ground");
-                Warthog.Kill();
+                Warthog.Landed();
             }
         }
 
-        public void Damage(int dmg)
+        public void Damage(float dmg)
         {
             Warthog.Damage(dmg);
         }
+        
     }
 }

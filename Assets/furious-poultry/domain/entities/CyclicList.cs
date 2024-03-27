@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace com.github.UnityWorkshop.furious_poultry.domain
+namespace com.github.UnityWorkshop.furious_poultry.domain.entities
 {
     public class CyclicList<T>
     {

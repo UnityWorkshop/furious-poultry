@@ -1,4 +1,5 @@
 ﻿using com.github.UnityWorkshop.furious_poultry.domain;
+using com.github.UnityWorkshop.furious_poultry.domain.aggregates;
 using NUnit.Framework;
 
 namespace furious_poultry.domain.tests

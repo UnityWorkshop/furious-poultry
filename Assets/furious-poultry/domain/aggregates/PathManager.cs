@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using com.github.UnityWorkshop.furious_poultry.domain.entities;
+using com.github.UnityWorkshop.furious_poultry.domain.interfaces;
 using UnityEngine;
 
-namespace com.github.UnityWorkshop.furious_poultry.domain
+namespace com.github.UnityWorkshop.furious_poultry.domain.aggregates
 {
     public class PathManager
     {
-        
-
         private Path nextPath;
         private CyclicList<IPath> _paths;
         private int currentPathIndex;
@@ -23,6 +23,22 @@ namespace com.github.UnityWorkshop.furious_poultry.domain
             _paths = new CyclicList<IPath>(paths);
             changingPaths = false;
             currentPathIndex = 0;
+        }
+        
+        public Transform GetNewTarget()
+        {
+            if (changingPaths)
+                TryToChangePaths(currentTarget);
+        
+            if (currentTarget is null || currentTargetIndex>=_paths.GetCurrent().Targets.Count)
+            {
+                currentTarget = _paths.GetCurrent().Targets[0];
+                currentTargetIndex = 0;
+            }
+            else
+                currentTarget = _paths.GetCurrent().Targets[currentTargetIndex ++];
+
+            return currentTarget;
         }
         
         
@@ -45,22 +61,6 @@ namespace com.github.UnityWorkshop.furious_poultry.domain
             _paths.GoToNext();
             
             changingPaths = false;
-        }
-        
-        public Transform GetNewTarget()
-        {
-            if (changingPaths)
-                TryToChangePaths(currentTarget);
-        
-            if (currentTarget is null || currentTargetIndex>=_paths.GetCurrent().Targets.Count)
-            {
-                currentTarget = _paths.GetCurrent().Targets[0];
-                currentTargetIndex = 0;
-            }
-            else
-                currentTarget = _paths.GetCurrent().Targets[currentTargetIndex ++];
-
-            return currentTarget;
         }
     }
 }

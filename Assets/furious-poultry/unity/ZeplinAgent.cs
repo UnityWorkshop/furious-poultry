@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using com.github.UnityWorkshop.furious_poultry.domain;
+using com.github.UnityWorkshop.furious_poultry.domain.aggregates;
+using com.github.UnityWorkshop.furious_poultry.domain.interfaces;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Serialization;

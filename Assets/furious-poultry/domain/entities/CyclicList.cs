@@ -59,5 +59,9 @@ namespace com.github.UnityWorkshop.furious_poultry.domain.entities
         {
             return _targets.ToList();
         }
+        public void GoToIndex(int newTargetIndexOnNextPath)
+        {
+            _index = newTargetIndexOnNextPath;
+        }
     }
 }

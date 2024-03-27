@@ -30,7 +30,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
         {
             _pathManager.Update(transform.position);
             
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKeyDown(KeyCode.P))
                 _pathManager.EnableChangingPaths();
         }
 

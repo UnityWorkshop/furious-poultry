@@ -48,7 +48,14 @@ namespace com.github.UnityWorkshop.furious_poultry.domain.aggregates
         {
             CyclicList<Transform> currentPath = _paths.GetCurrent();
             currentPath.GoToNext();
-            _navigationProvider.SetDestination(currentPath.GetCurrent().position.ToSystem());
+            if (changingPaths && _paths.GetNext().TryGetElementIndex(currentPath.GetCurrent(), out int newTargetIndexOnNextPath))
+            {
+                _paths.GoToNext();
+                _paths.GetCurrent().GoToIndex(newTargetIndexOnNextPath);
+                changingPaths = false;
+            }
+            
+            _navigationProvider.SetDestination(_paths.GetCurrent().GetCurrent().position.ToSystem());
         }
 
         public void EnableChangingPaths()

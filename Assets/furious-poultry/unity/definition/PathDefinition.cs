@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
-using DefaultNamespace;
-using furious_poultry.domain;
+using com.github.UnityWorkshop.furious_poultry.domain;
 using UnityEngine;
 
-namespace furious_poultry.unity
+namespace com.github.UnityWorkshop.furious_poultry.unity.definition
 {
     [Serializable]
     public class PathDefinition:IPath

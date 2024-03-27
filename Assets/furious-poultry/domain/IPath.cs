@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace furious_poultry.domain
+namespace com.github.UnityWorkshop.furious_poultry.domain
 {
     public interface IPath
     {

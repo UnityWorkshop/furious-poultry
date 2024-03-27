@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using com.github.UnityWorkshop.furious_poultry.application.interfaces;
-using com.github.UnityWorkshop.furious_poultry.application.services;
+using com.github.UnityWorkshop.Assets.furious_poultry.application.interfaces;
+using com.github.UnityWorkshop.Assets.furious_poultry.application.services;
 using com.github.UnityWorkshop.furious_poultry.domain;
 using com.github.UnityWorkshop.furious_poultry.unity.definition;
 using UnityEngine;

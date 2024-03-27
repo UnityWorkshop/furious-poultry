@@ -501,18 +501,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8462417880499471841, guid: c6178fe3c207fbc4e94ea592b2c0f8a3, type: 3}
-      propertyPath: currentFocus
-      value: 
-      objectReference: {fileID: 235429258}
-    - target: {fileID: 8462417880499471841, guid: c6178fe3c207fbc4e94ea592b2c0f8a3, type: 3}
-      propertyPath: zeplinYeetPos
-      value: 
-      objectReference: {fileID: 235429258}
-    - target: {fileID: 8462417880499471841, guid: c6178fe3c207fbc4e94ea592b2c0f8a3, type: 3}
-      propertyPath: config.yeetPos
-      value: 
-      objectReference: {fileID: 1638877722}
-    - target: {fileID: 8462417880499471841, guid: c6178fe3c207fbc4e94ea592b2c0f8a3, type: 3}
       propertyPath: config.currentFocus
       value: 
       objectReference: {fileID: 235429258}
@@ -520,34 +508,6 @@ PrefabInstance:
       propertyPath: config.zeplinYeetPos
       value: 
       objectReference: {fileID: 235429258}
-    - target: {fileID: 8462417880499471841, guid: c6178fe3c207fbc4e94ea592b2c0f8a3, type: 3}
-      propertyPath: ballPrefabs.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8462417880499471841, guid: c6178fe3c207fbc4e94ea592b2c0f8a3, type: 3}
-      propertyPath: ballPrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 5878251691614649356, guid: 165a7c7dc02b733408c73a078aa46250, type: 3}
-    - target: {fileID: 8462417880499471841, guid: c6178fe3c207fbc4e94ea592b2c0f8a3, type: 3}
-      propertyPath: ballPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 641246914050735469, guid: ba7d3b53eed9b9640855778640a0d029, type: 3}
-    - target: {fileID: 8462417880499471841, guid: c6178fe3c207fbc4e94ea592b2c0f8a3, type: 3}
-      propertyPath: ballPrefabs.Array.data[2]
-      value: 
-      objectReference: {fileID: 2971418823599038447, guid: ba7d3b53eed9b9640855778640a0d029, type: 3}
-    - target: {fileID: 8462417880499471841, guid: c6178fe3c207fbc4e94ea592b2c0f8a3, type: 3}
-      propertyPath: config.ballPrefabs.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8462417880499471841, guid: c6178fe3c207fbc4e94ea592b2c0f8a3, type: 3}
-      propertyPath: config.ballPrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 5878251691614649356, guid: 165a7c7dc02b733408c73a078aa46250, type: 3}
-    - target: {fileID: 8462417880499471841, guid: c6178fe3c207fbc4e94ea592b2c0f8a3, type: 3}
-      propertyPath: config.ballPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 641246914050735469, guid: ba7d3b53eed9b9640855778640a0d029, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -940,11 +900,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1638877722 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9190868448265222125, guid: c6178fe3c207fbc4e94ea592b2c0f8a3, type: 3}
-  m_PrefabInstance: {fileID: 1002463329}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1997943942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1381,25 +1336,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1997943948}
     m_Modifications:
-    - target: {fileID: -7029948723529949830, guid: 32c1d6857db710f409b7a3619721a690, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: -6733177361254619370, guid: 32c1d6857db710f409b7a3619721a690, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 32c1d6857db710f409b7a3619721a690, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 2495145745592774401, guid: 32c1d6857db710f409b7a3619721a690, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2495145745592774401, guid: 32c1d6857db710f409b7a3619721a690, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 30
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2495145745592774401, guid: 32c1d6857db710f409b7a3619721a690, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1436,18 +1379,6 @@ PrefabInstance:
     - target: {fileID: 5140668110836320735, guid: 32c1d6857db710f409b7a3619721a690, type: 3}
       propertyPath: m_Name
       value: Zeplin
-      objectReference: {fileID: 0}
-    - target: {fileID: 5140668110836320735, guid: 32c1d6857db710f409b7a3619721a690, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5148817236446094103, guid: 32c1d6857db710f409b7a3619721a690, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7553274084554665271, guid: 32c1d6857db710f409b7a3619721a690, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

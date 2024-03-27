@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4876933053422263863}
   - component: {fileID: -7918335002988649766}
   - component: {fileID: 3927676674813008733}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 9203870080014859515}
   - component: {fileID: -1439730007547781893}
   - component: {fileID: 1261010643843470168}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: -8679921383154817045}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2495145745592774401}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Zeplin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 23.16, z: 15}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: -8679921383154817045}
@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 6697621763907784786}
   - component: {fileID: 882129737928793925}
   - component: {fileID: 6040306224969658291}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,7 +394,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3111229499435934558}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: YeetPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}

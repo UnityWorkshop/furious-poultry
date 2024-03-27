@@ -56,8 +56,13 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
         }
 
         public abstract void DoPrimaryAbility(Vector3 direction);
+
+        bool destroyed;
         public void Destruct()
         {
+            if(destroyed)
+                return;
+            destroyed = true;
             Destroy(gameObject);
         }
 

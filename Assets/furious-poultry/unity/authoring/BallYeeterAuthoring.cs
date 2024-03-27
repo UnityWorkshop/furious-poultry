@@ -39,9 +39,8 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
             Cursor.visible = false;
 
             _player = new Player(config.ballPrefabs.Count);
-            _currentPrefabIndex = new ClampableIndex(0 , 0, ballPrefabs.Count -1);
             _ballYeeter = new BallYeeter(10);
-            BallYeeterService = new BallYeeterService(ballPrefabs.Count - 1, _ballYeeter, this);
+            BallYeeterService = new BallYeeterService(config.ballPrefabs.Count - 1, _ballYeeter, this);
         }
 
         void Update()

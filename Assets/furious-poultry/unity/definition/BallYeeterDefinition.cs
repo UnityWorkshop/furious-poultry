@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using com.github.UnityWorkshop.furious_poultry.unity;
+using com.github.UnityWorkshop.furious_poultry.unity.authoring;
 using UnityEngine;
 
 namespace furious_poultry.unity

@@ -1,46 +1,42 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using com.github.UnityWorkshop.furious_poultry.domain;
+using com.github.UnityWorkshop.furious_poultry.domain.aggregates;
+using com.github.UnityWorkshop.furious_poultry.domain.interfaces;
+using com.github.UnityWorkshop.furious_poultry.unity.definition;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 namespace com.github.UnityWorkshop.furious_poultry.unity
 {
     [RequireComponent(typeof(NavMeshAgent))]
-    public class ZeplinAgent : MonoBehaviour
+    public class ZeplinAgent : MonoBehaviour, INavigationProvider
     {
-        private NavMeshAgent _navMeshAgent;
-        private Transform currentTarget;
-        private int currentTargetIndex;
-        [SerializeField] private float stoppingDistance;
-        [SerializeField] private List<Transform> targets ;
-        // Start is called before the first frame update
+        [SerializeField] float stoppingDistance;
+        [SerializeField] List<PathDefinition> paths;
+        
+        NavMeshAgent _navMeshAgent;
+        PathManager _pathManager;
         void Start()
         {
             _navMeshAgent = GetComponent<NavMeshAgent>();
-            if (!targets.Any())
-                throw new ArgumentException("you stupid");
-            ChangeTarget();
+            _pathManager = new PathManager(paths, stoppingDistance, this);
         }
 
         // Update is called once per frame
         void Update()
         {
-            if (Vector3.Distance(transform.position, currentTarget.position )<= stoppingDistance)
-                ChangeTarget();
+            _pathManager.Update(transform.position);
+            
+            if (Input.GetKeyDown(KeyCode.P))
+                _pathManager.EnableChangingPaths();
         }
 
-        void ChangeTarget()
+        public void SetDestination(System.Numerics.Vector3 destination)
         {
-            if (currentTarget is null || currentTargetIndex>=targets.Count)
-            {
-                currentTarget = targets[0];
-                currentTargetIndex = 0;
-            }
-            else
-                currentTarget = targets[currentTargetIndex ++];
-
-            _navMeshAgent.destination = currentTarget.position;
+            _navMeshAgent.destination = destination.ToUnity();
         }
     }
 }

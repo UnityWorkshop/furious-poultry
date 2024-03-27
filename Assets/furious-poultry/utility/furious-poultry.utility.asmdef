@@ -1,13 +1,13 @@
 {
-    "name": "furious-poultry.domain",
+    "name": "furious-poultry.utility",
     "rootNamespace": "com.github.UnityWorkshop",
-    "references": ["GUID:9f71c59760fa14b488f5357436a76bfa"],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
-    "overrideReferences": false,
+    "overrideReferences": true,
     "precompiledReferences": [],
-    "autoReferenced": true,
+    "autoReferenced": false,
     "defineConstraints": [],
     "versionDefines": [],
     "noEngineReferences": false

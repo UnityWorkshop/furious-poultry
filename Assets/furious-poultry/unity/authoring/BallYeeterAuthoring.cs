@@ -27,6 +27,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
         private ClampableIndex _currentPrefabIndex;
         private PoultryAuthoring _currentPoultryAuthoring;
         protected BallYeeterService BallYeeterService;
+        BallYeeter _ballYeeter;
     
         void Start()
         {
@@ -38,6 +39,8 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
             }
 
             _currentPrefabIndex = new ClampableIndex(0 , 0, ballPrefabs.Count -1);
+            _ballYeeter = new BallYeeter(10);
+            BallYeeterService = new BallYeeterService(ballPrefabs.Count - 1, _ballYeeter, this);
         }
 
         void Update()

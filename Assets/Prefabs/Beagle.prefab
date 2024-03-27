@@ -179,14 +179,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a560f3fe6ec5e47a98753255027b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PoultryDefinition:
+  poultryDefinition:
     damage: 10
     health: 100
-    isOnGround: 0
     hasCollided: 0
     decayTickDamage: 1
+  abilityLeftOvers: []
   pelletAmount: 9
-  pelletPrefab: {fileID: -9042591375044652550, guid: 316cd14a254488d45953a5186bb74229, type: 3}
+  pelletPrefab: {fileID: 1419465531841158752, guid: 316cd14a254488d45953a5186bb74229, type: 3}
   pelletSpeed: 1000
   pelletSpread: 100
   pelletDamage: 10

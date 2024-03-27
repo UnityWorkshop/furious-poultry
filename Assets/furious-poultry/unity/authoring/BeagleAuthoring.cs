@@ -14,11 +14,6 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
     
         private bool _abilityUsed;
         
-        public override bool IsDead()
-        {
-            return Poultry.IsOnGround;
-        }
-
         public override void DoPrimaryAbility(Vector3 direction)
         {
             if (_abilityUsed) return;
@@ -31,9 +26,8 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
                 rotation.y += RandomRotationDeviation();
                 rotation.z += RandomRotationDeviation();
                 Quaternion rotationQuaternion = Quaternion.Euler(rotation);
-                Rigidbody pellet = Instantiate(pelletPrefab, shotPosition.position, rotationQuaternion);
-                Pellet component = pellet.GetComponent<Pellet>();
-                component.Initialize(pelletDamage);
+                Pellet pellet = Instantiate(pelletPrefab, shotPosition.position, rotationQuaternion);
+                pellet.Initialize(pelletDamage);
                 Vector3 shotForce = direction * pelletSpeed ;
                 abilityLeftOvers.Add(pellet);
                 pellet.AddForce(shotForce);

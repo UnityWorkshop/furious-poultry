@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using DefaultNamespace;
-using furious_poultry.domain;
-using furious_poultry.unity;
+using com.github.UnityWorkshop.furious_poultry.domain;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Serialization;

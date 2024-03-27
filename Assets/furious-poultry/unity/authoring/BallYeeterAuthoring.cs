@@ -1,16 +1,13 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using com.github.UnityWorkshop.furious_poultry.application.interfaces;
-using com.github.UnityWorkshop.furious_poultry.application.services;
+using com.github.UnityWorkshop.Assets.furious_poultry.application.interfaces;
+using com.github.UnityWorkshop.Assets.furious_poultry.application.services;
 using com.github.UnityWorkshop.furious_poultry.domain;
-using com.github.UnityWorkshop.furious_poultry.unity.authoring;
-using furious_poultry.unity;
-using NSubstitute.Extensions;
+using com.github.UnityWorkshop.furious_poultry.unity.definition;
 using UnityEngine;
 using SystemVector3 = System.Numerics.Vector3;
 
-namespace com.github.UnityWorkshop.furious_poultry.unity
+namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
 {
     public class BallYeeterAuthoring : MonoBehaviour, ITransformProvider, IInputProvider
     { 

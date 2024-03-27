@@ -1,5 +1,5 @@
-﻿using com.github.UnityWorkshop.furious_poultry.application.interfaces;
-using com.github.UnityWorkshop.furious_poultry.application.services;
+﻿using com.github.UnityWorkshop.Assets.furious_poultry.application.interfaces;
+using com.github.UnityWorkshop.Assets.furious_poultry.application.services;
 using com.github.UnityWorkshop.furious_poultry.domain;
 using furious_poultry.domain.tests;
 using NSubstitute;

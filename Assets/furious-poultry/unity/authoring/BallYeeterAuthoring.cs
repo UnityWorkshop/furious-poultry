@@ -1,16 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using com.github.UnityWorkshop.furious_poultry.application.interfaces;
+using com.github.UnityWorkshop.furious_poultry.application.services;
 using com.github.UnityWorkshop.furious_poultry.domain;
+using com.github.UnityWorkshop.furious_poultry.unity.authoring;
 using furious_poultry.unity;
 using NSubstitute.Extensions;
 using UnityEngine;
-using UnityEngine.Serialization;
-
+using SystemVector3 = System.Numerics.Vector3;
 
 namespace com.github.UnityWorkshop.furious_poultry.unity
 {
-    public class BallYeeter : MonoBehaviour
+    public class BallYeeterAuthoring : MonoBehaviour, ITransformProvider, IInputProvider
     { 
         private float _xRotation;
         private float _yRotation;
@@ -28,12 +30,18 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
             }
         }
 
+        protected BallYeeterService BallYeeterService;
+        BallYeeter _ballYeeter;
+    
         void Start()
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
 
             _player = new Player(config.ballPrefabs.Count);
+            _currentPrefabIndex = new ClampableIndex(0 , 0, ballPrefabs.Count -1);
+            _ballYeeter = new BallYeeter(10);
+            BallYeeterService = new BallYeeterService(ballPrefabs.Count - 1, _ballYeeter, this);
         }
 
         void Update()
@@ -106,16 +114,31 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
                 config.currentFocus = _currentPoultryAuthoring.transform;
                 return;
             }
-            _currentPoultryAuthoring.DoPrimaryAbility();
+            _currentPoultryAuthoring.DoPrimaryAbility(transform.forward);
         }
 
         private void DestroyAllAbilityLeftovers()
         {
-            GameObject[] leftoversToDelete = GameObject.FindGameObjectsWithTag("AbilityLeftovers");
-            foreach (GameObject leftOver in leftoversToDelete)
+            //GameObject[] leftoversToDelete = GameObject.FindGameObjectsWithTag("AbilityLeftovers");
+            if (_currentPoultryAuthoring is null) return;
+            foreach (var leftOver in _currentPoultryAuthoring.abilityLeftOvers)
             {
                 Destroy(leftOver);
             }
         }
+
+        private void TryManualPoultryReset()
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                _currentPoultryAuthoring.Destruct();
+            }
+        }
+
+        public SystemVector3 Forward => transform.forward.ToSystem();
+        public bool PressedKeySwitchPoultryPrevious => Input.GetKeyDown(KeyCode.A);
+        public bool PressedKeySwitchPoultryNext => Input.GetKeyDown(KeyCode.D);
+        public bool PressedKeyResetPoultry => Input.GetKeyDown(KeyCode.R);
+        public bool PressedKeyShoot => Input.GetKeyDown(KeyCode.Mouse0);
     }
 }

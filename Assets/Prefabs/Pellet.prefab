@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1141231433480141297}
   - component: {fileID: 1521549538859227882}
   - component: {fileID: -9042591375044652550}
+  - component: {fileID: 1419465531841158752}
   m_Layer: 6
   m_Name: Pellet
   m_TagString: AbilityLeftovers
@@ -133,3 +134,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1419465531841158752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3468443293513585033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b5746da80b74eb18c53e37898abf1d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

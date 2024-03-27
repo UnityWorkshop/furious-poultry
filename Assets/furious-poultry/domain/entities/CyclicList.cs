@@ -9,9 +9,9 @@ namespace com.github.UnityWorkshop.furious_poultry.domain.entities
         List<T> _targets;
         int _index;
 
-        public CyclicList(List<T> targets)
+        public CyclicList(IEnumerable<T> targets)
         {
-            this._targets = targets;
+            this._targets = targets.ToList();
             _index = 0;
         }
 

@@ -11,7 +11,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.definition
     {
         [SerializeField] List<Transform> targets;
 
-        public List<UnityEngine.Transform> Targets => targets;
+        public List<Transform> Targets => targets;
         
     }
 }

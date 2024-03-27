@@ -3,64 +3,57 @@ using System.Collections.Generic;
 using System.Linq;
 using com.github.UnityWorkshop.furious_poultry.domain.entities;
 using com.github.UnityWorkshop.furious_poultry.domain.interfaces;
+using com.github.UnityWorkshop.furious_poultry.unity;
 using UnityEngine;
 
 namespace com.github.UnityWorkshop.furious_poultry.domain.aggregates
 {
     public class PathManager
     {
-        private Path nextPath;
-        private CyclicList<IPath> _paths;
-        private int currentPathIndex;
-        private bool changingPaths;
-        private Transform currentTarget;
-        private int currentTargetIndex;
+        Path nextPath;
+        CyclicList<CyclicList<Transform>> _paths;
+        bool changingPaths;
+        Transform currentTarget;
+        int currentTargetIndex;
+        float _stoppingDistance;
 
-        public PathManager(List<IPath> paths)
+        INavigationProvider _navigationProvider;
+
+        public PathManager(IEnumerable<IPath> paths, float stoppingDistance, INavigationProvider navigationProvider)
         {
-            if (!paths.Any())
+            _stoppingDistance = stoppingDistance;
+            _navigationProvider = navigationProvider;
+            IEnumerable<IPath> cachedPaths = paths.ToList();
+            if (!cachedPaths.Any())
                 throw new ArgumentException("you stupid");
-            _paths = new CyclicList<IPath>(paths);
-            changingPaths = false;
-            currentPathIndex = 0;
+            _paths = new CyclicList<CyclicList<Transform>>(cachedPaths.Select(x=>new CyclicList<Transform>(x.Targets)));
+            Initialize();
         }
         
-        public Transform GetNewTarget()
+        public void Update(Vector3 currentLocation)
         {
-            if (changingPaths)
-                TryToChangePaths(currentTarget);
-        
-            if (currentTarget is null || currentTargetIndex>=_paths.GetCurrent().Targets.Count)
-            {
-                currentTarget = _paths.GetCurrent().Targets[0];
-                currentTargetIndex = 0;
-            }
-            else
-                currentTarget = _paths.GetCurrent().Targets[currentTargetIndex ++];
-
-            return currentTarget;
+            CyclicList<Transform> currentPath = _paths.GetCurrent();
+            if (Vector3.Distance(currentLocation, currentPath.GetCurrent().position )<= _stoppingDistance)
+                SelectNewTarget();
         }
         
+        void Initialize()
+        {
+            CyclicList<Transform> currentPath = _paths.GetCurrent();
+            Transform currentTarget = currentPath.GetCurrent();
+            _navigationProvider.SetDestination(currentTarget.position.ToSystem());
+        }
         
-        public void StartToChangePaths()
+        void SelectNewTarget()
+        {
+            CyclicList<Transform> currentPath = _paths.GetCurrent();
+            currentPath.GoToNext();
+            _navigationProvider.SetDestination(currentPath.GetCurrent().position.ToSystem());
+        }
+
+        public void EnableChangingPaths()
         {
             changingPaths = true;
-        }
-        
-        void TryToChangePaths(Transform currentTarget)
-        {
-            if (nextPath.targets.TryGetElementIndex(this.currentTarget, out int index))
-            {
-                ChangePath();
-                currentTargetIndex = index;
-            }
-        }
-
-        void ChangePath()
-        {
-            _paths.GoToNext();
-            
-            changingPaths = false;
         }
     }
 }

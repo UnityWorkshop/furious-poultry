@@ -1,33 +1,23 @@
+
 using UnityEngine;
 
-namespace com.github.UnityWorkshop.furious_poultry.unity
+namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
 {
-    public class Beagle : PoultryAuthoring
+    public class BeagleAuthoring : PoultryAuthoring
     {
         [SerializeField] private int pelletAmount = 9;
-        [SerializeField] private Rigidbody pelletPrefab;
+        [SerializeField] private Pellet pelletPrefab;
         [SerializeField] private float pelletSpeed = 1;// 1 = temp
         [SerializeField] private float pelletSpread = 0.1f;
+        [SerializeField] private float pelletDamage = 0.1f;
         [SerializeField] private Transform shotPosition;
     
         private bool _abilityUsed;
         
-        public override bool IsDead()
-        {
-            return Poultry.IsOnGround;
-        }
-
-        public override void DoPrimaryAbility()
-        {
-        
-            ShootShotgun();
-        
-        }
-    
-
-        private void ShootShotgun()
+        public override void DoPrimaryAbility(Vector3 direction)
         {
             if (_abilityUsed) return;
+            abilityLeftOvers.Clear();
             _abilityUsed = true;
             for (int i = 0; i < pelletAmount; i++) // not optimal
             {
@@ -36,20 +26,19 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
                 rotation.y += RandomRotationDeviation();
                 rotation.z += RandomRotationDeviation();
                 Quaternion rotationQuaternion = Quaternion.Euler(rotation);
-                Rigidbody pellet = Instantiate(pelletPrefab, shotPosition.position, rotationQuaternion);
-                Vector3 shotForce = pellet.transform.forward * pelletSpeed ;
+                Pellet pellet = Instantiate(pelletPrefab, shotPosition.position, rotationQuaternion);
+                pellet.Initialize(pelletDamage);
+                Vector3 shotForce = direction * pelletSpeed ;
+                abilityLeftOvers.Add(pellet);
                 pellet.AddForce(shotForce);
             }
         }
+
 
         private float RandomRotationDeviation()
         {
             return Random.Range(-pelletSpread, pelletSpread);
         }
-
-        private Vector3 ShotPosition()
-        {
-            return transform.position ; // todo: transform.position + buffer distance in viewing direction
-        }
+        
     }
 }

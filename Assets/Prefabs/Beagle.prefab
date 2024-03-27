@@ -165,7 +165,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &641246914050735469
 MonoBehaviour:
@@ -188,8 +188,8 @@ MonoBehaviour:
   pelletAmount: 9
   pelletPrefab: {fileID: 1419465531841158752, guid: 316cd14a254488d45953a5186bb74229, type: 3}
   pelletSpeed: 1000
-  pelletSpread: 100
-  pelletDamage: 10
+  pelletSpread: 10
+  pelletDamage: 0.1
   shotPosition: {fileID: 3805856747541044599}
 --- !u!1 &8083260382267941168
 GameObject:

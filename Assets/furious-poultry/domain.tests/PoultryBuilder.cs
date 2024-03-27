@@ -1,5 +1,6 @@
 ﻿using System.Security.Cryptography.X509Certificates;
 using com.github.UnityWorkshop.furious_poultry.domain;
+using com.github.UnityWorkshop.furious_poultry.domain.aggregates;
 
 namespace furious_poultry.domain.tests
 {

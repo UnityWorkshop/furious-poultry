@@ -1,4 +1,4 @@
-﻿namespace com.github.UnityWorkshop.furious_poultry.domain
+﻿namespace com.github.UnityWorkshop.furious_poultry.domain.aggregates
 {
     public class Beagle: Poultry
     {

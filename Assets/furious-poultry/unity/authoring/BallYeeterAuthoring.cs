@@ -38,18 +38,18 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
 
             _player = new Player(config.ballPrefabs.Count);
             _ballYeeter = new BallYeeter(10);
-            BallYeeterService = new BallYeeterService(config.ballPrefabs.Count - 1, _ballYeeter, this);
+            BallYeeterService = new BallYeeterService(config.ballPrefabs.Count - 1, _ballYeeter, this, _player);
         }
 
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
-                _player.PreviousPoultry();
+                BallYeeterService.PreviousPrefab();
             }
             if (Input.GetKeyDown(KeyCode.D))
             {
-                _player.NextPoultry();
+                BallYeeterService.NextPrefab();
             }
         
             if (Input.GetKeyDown(KeyCode.Mouse0)) ExecutePrimaryAction();

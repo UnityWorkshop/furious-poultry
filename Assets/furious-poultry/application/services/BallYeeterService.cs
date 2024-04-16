@@ -11,21 +11,26 @@ namespace com.github.UnityWorkshop.Assets.furious_poultry.application.services
         private ClampableIndex _currentPrefabIndex;
         private BallYeeter _ballYeeter;
         private ITransformProvider _transformProvider;
+        private Player _player;
 
-        public BallYeeterService(int maxIndex, BallYeeter ballYeeter, ITransformProvider transformProvider)
+        public BallYeeterService(int maxIndex, BallYeeter ballYeeter, ITransformProvider transformProvider, Player player)
         {
             _ballYeeter = ballYeeter;
             _transformProvider = transformProvider;
             _currentPrefabIndex = new ClampableIndex(0, 0, maxIndex);
+            _player = player;
         }
 
         public void NextPrefab()
         {
+            _player.NextPoultry();
+            
             _currentPrefabIndex.IncrementIndex();
         }
         
         public void PreviousPrefab()
         {
+            _player.PreviousPoultry();
             _currentPrefabIndex.DecrementIndex();
         }
 

@@ -178,9 +178,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b5fae090414e81a2f4392b2966a4a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PoultryDefinition:
-    damage: 10
+  poultryDefinition:
+    damage: 50
     health: 100
-    isOnGround: 0
     hasCollided: 0
     decayTickDamage: 1
+  abilityLeftOvers: []

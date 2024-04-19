@@ -19,6 +19,9 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
         {
             if (Warthog.IsDead)
             {
+                MenuHandler menuHandler = FindObjectOfType<MenuHandler>();
+                if(menuHandler != null)
+                    menuHandler.UpdateWarthogAmount();
                 Destroy(gameObject);
                 //Debug.Log("Got'em");
             }

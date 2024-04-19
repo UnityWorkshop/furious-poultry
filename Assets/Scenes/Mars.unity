@@ -1857,15 +1857,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5168141579188072349, guid: c0b63de418e28cd4d8a073df04bcd545, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.051029205
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5168141579188072349, guid: c0b63de418e28cd4d8a073df04bcd545, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 20.5
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5168141579188072349, guid: c0b63de418e28cd4d8a073df04bcd545, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.035585403
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5168141579188072349, guid: c0b63de418e28cd4d8a073df04bcd545, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1898,6 +1898,14 @@ PrefabInstance:
     - target: {fileID: 6309556455646633759, guid: c0b63de418e28cd4d8a073df04bcd545, type: 3}
       propertyPath: m_Name
       value: KingThog
+      objectReference: {fileID: 0}
+    - target: {fileID: 8607849571457335387, guid: c0b63de418e28cd4d8a073df04bcd545, type: 3}
+      propertyPath: m_Drag
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8607849571457335387, guid: c0b63de418e28cd4d8a073df04bcd545, type: 3}
+      propertyPath: m_Mass
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

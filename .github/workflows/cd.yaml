@@ -1,0 +1,283 @@
+name: Continuous Delivery
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      workflow_mode:
+        description: '[test]'
+        required: true
+        default: 'test'
+
+jobs:
+  versions:
+    outputs:
+      VERSION: ${{ steps.set-versions.outputs.VERSION }}${{ steps.default-versions.outputs.VERSION }}
+      BUILD: ${{ steps.set-versions.outputs.BUILD }}${{ steps.default-versions.outputs.BUILD }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Get release info
+        id: set-versions
+        if: github.event.action == 'published'
+        run: |
+          echo "Release title: ${{ github.event.release.name }}"
+          echo "Release tag: ${{ github.event.release.tag_name }}"
+          echo "BUILD=${{ github.event.release.tag_name }}" >> "$GITHUB_OUTPUT"
+          echo "VERSION=${{ github.event.release.name }}" >> "$GITHUB_OUTPUT"
+          echo "VERSION=${{ github.event.release.name }}" >> "$GITHUB_ENV"
+
+      - name: default versions
+        id: default-versions
+        if: github.event.action != 'published'
+        run: |
+          echo "Release title: 1.0.0"
+          echo "Release tag: 1"
+          echo "BUILD=${GITHUB_RUN_NUMBER}" >> "$GITHUB_OUTPUT"
+          echo "VERSION=0.0.${GITHUB_RUN_NUMBER}" >> "$GITHUB_OUTPUT"
+          echo "VERSION=0.0.${GITHUB_RUN_NUMBER}" >> "$GITHUB_ENV"
+
+      - name: Check Version Format
+        run: |
+          if [[ "${{ env.VERSION }}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "${{ env.VERSION }} is a valid version."
+          else
+            echo "${{ env.VERSION }} is NOT a valid version format (x.x.x)."
+            exit 1
+          fi
+  
+  buildWithLinux:
+    name: Build for ${{ matrix.targetPlatform }}
+    runs-on: ubuntu-latest
+    needs: [ versions ]
+    strategy:
+      fail-fast: false
+      matrix:
+        targetPlatform:
+          #          - Android
+          - iOS
+          - StandaloneWindows64
+    #          - StandaloneLinux64
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      #      - run: nugetforunity restore ./client
+      #      - uses: actions/cache@v3
+      #        with:
+      #          path: client/Library
+      #          key: Library-${{ hashFiles('client/Assets/**', 'client/Packages/**', 'client/ProjectSettings/**') }}
+      #          restore-keys: |
+      #            Library-
+      #      - name: Free Disk Space
+      #        if: matrix.targetPlatform == 'Android' || matrix.targetPlatform == 'StandaloneLinux64'
+      #        uses: jlumbroso/free-disk-space@v1.3.1
+      #        with:
+      #          large-packages: false
+      - name: Build Unity Project
+        id: build
+        uses: game-ci/unity-builder@main
+        env:
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          buildsPath: ./Builds
+          projectPath: .
+          targetPlatform: ${{ matrix.targetPlatform }}
+          androidExportType: androidAppBundle
+          androidKeystoreName: user.keystore
+          androidKeystoreBase64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          androidKeystorePass: ${{ secrets.ANDROID_KEYSTORE_PASS }}
+          androidKeyaliasName: ${{ secrets.ANDROID_KEYALIAS_NAME }}
+          androidKeyaliasPass: ${{ secrets.ANDROID_KEYALIAS_PASS }}
+          androidTargetSdkVersion: AndroidApiLevel34
+          buildMethod: build.BuildScript.BuildGame
+          customParameters: -platform=${{ matrix.targetPlatform }} -versionCode=${{ needs.versions.outputs.BUILD }} -version=${{ needs.versions.outputs.VERSION }}
+
+      - name: Install MinIO Client
+        run: |
+          curl https://dl.min.io/client/mc/release/linux-amd64/mc \
+          --create-dirs \
+          -o $HOME/minio-binaries/mc
+          
+          chmod +x $HOME/minio-binaries/mc
+          echo "$HOME/minio-binaries" >> $GITHUB_PATH
+
+      - name: Configure MinIO Client
+        run: |
+          mc alias set s3mcl https://s3.api.massivecreationlab.com ${{ secrets.MINIO_ACCESS_KEY }} ${{ secrets.MINIO_SECRET_KEY }}
+
+      - name: Remove existing files from MinIO
+        run: |
+          mc rm --recursive --force s3mcl/furious-poultry-artifacts/${{ matrix.targetPlatform }}/
+
+      - name: Upload artifact directory to MinIO
+        run: |
+          mc mirror ./Builds/${{ matrix.targetPlatform }}/ s3mcl/furious-poultry-artifacts/${{ matrix.targetPlatform }}/
+
+
+  deployToAppStore:
+    name: Deploy to the App Store TestFlight
+    if: github.event.action == 'published'
+    runs-on: macos-latest
+    needs: buildWithLinux
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Install MinIO Client
+        run: |
+          brew install minio/stable/mc
+
+      - name: Configure MinIO Client
+        run: |
+          mc alias set s3mcl https://s3.api.massivecreationlab.com ${{ secrets.MINIO_ACCESS_KEY }} ${{ secrets.MINIO_SECRET_KEY }}
+      - name: Download iOS Artifact
+        run: |
+          mc cp --recursive s3mcl/furious-poultry-artifacts/iOS/ ${{ format('{0}/build/iOS', github.workspace) }}
+      #      - name: Update Release Notes
+      #        if: github.event.action == 'published'
+      #        env:
+      #          RELEASE_NOTES: ${{ github.event.release.body }}
+      #        run: echo "$RELEASE_NOTES" > fastlane/metadata/en-US/release_notes.txt
+      - name: Fix File Permissions and Run Fastlane
+        env:
+          APPLE_CONNECT_EMAIL: ${{ secrets.APPLE_CONNECT_EMAIL }}
+          APPLE_DEVELOPER_EMAIL: ${{ secrets.APPLE_DEVELOPER_EMAIL }}
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+          APPLE_TEAM_NAME: ${{ secrets.APPLE_TEAM_NAME }}
+
+          GH_PAT: ${{ secrets.GH_PAT }}
+          #          MATCH_URL: ${{ secrets.MATCH_URL }}
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          MATCH_DEPLOY_KEY: ${{ secrets.MATCH_DEPLOY_KEY }}
+          MATCH_REPOSITORY: ${{ secrets.MATCH_REPOSITORY }}
+
+          APPSTORE_KEY_ID: ${{ secrets.APPSTORE_KEY_ID }}
+          APPSTORE_ISSUER_ID: ${{ secrets.APPSTORE_ISSUER_ID }}
+          APPSTORE_P8: ${{ secrets.APPSTORE_P8 }}
+          
+          #          USYM_UPLOAD_AUTH_TOKEN: ${{ secrets.USYM_UPLOAD_AUTH_TOKEN }}
+          IOS_BUILD_PATH: ${{ format('{0}/build/iOS', github.workspace) }}
+          IOS_BUNDLE_ID: com.massivecreationlab.workshop.furious_poultry
+          PROJECT_NAME: furious_poultry
+        run: |
+          eval "$(ssh-agent -s)"
+          ssh-add - <<< "${MATCH_DEPLOY_KEY}"
+          find $IOS_BUILD_PATH -type f -name "**.sh" -exec chmod +x {} \;
+          bundle install
+          bundle exec fastlane ios beta
+  #          find $IOS_BUILD_PATH -type f -iname "usymtool" -exec chmod +x {} \;
+  
+  
+  
+  #  deployToGooglePlay:
+  #    name: Release to the Google Play Store
+  #    runs-on: ubuntu-latest
+  #    if: github.event.action == 'published'
+  #    needs: [buildWithLinux]
+  #    env:
+  #      GOOGLE_PLAY_KEY_FILE: ${{ secrets.GOOGLE_PLAY_KEY_FILE }}
+  #      GOOGLE_PLAY_KEY_FILE_PATH:
+  #        ${{ format('{0}/fastlane/google-fastlane.json', github.workspace) }}
+  #      ANDROID_BUILD_FILE_PATH: ${{ format('{0}/build/Android/Android.aab', github.workspace) }}
+  #      ANDROID_PACKAGE_NAME: com.massivecreationlab.workshop.furious_poultry
+  #    steps:
+  #      - name: Checkout Repository
+  #        uses: actions/checkout@v4
+  #
+  #      - name: Install MinIO Client
+  #        run: |
+  #          curl https://dl.min.io/client/mc/release/linux-amd64/mc \
+  #          --create-dirs \
+  #          -o $HOME/minio-binaries/mc
+  #
+  #          chmod +x $HOME/minio-binaries/mc
+  #          echo "$HOME/minio-binaries" >> $GITHUB_PATH
+  #
+  #      - name: Configure MinIO Client
+  #        run: |
+  #          mc alias set s3mcl https://s3.api.massivecreationlab.com ${{ secrets.MINIO_ACCESS_KEY }} ${{ secrets.MINIO_SECRET_KEY }}
+  #      - name: Download iOS Artifact
+  #        run: |
+  #          mc cp --recursive s3mcl/furious-poultry-artifacts/Android/ ${{ format('{0}/build/Android', github.workspace) }}
+  #
+  #      - name: Add Authentication
+  #        run: echo "$GOOGLE_PLAY_KEY_FILE" > $GOOGLE_PLAY_KEY_FILE_PATH
+  #      - name: Set up Fastlane
+  #        uses: ruby/setup-ruby@v1
+  #        with:
+  #          ruby-version: 3.2
+  #          bundler-cache: true
+  #      - name: Upload to Google Play Internal
+  #        uses: maierj/fastlane-action@v3.0.0
+  #        with:
+  #          lane: 'android internal' # Change to upload to a different lane
+  #      #      - name: Cleanup to avoid storage limit
+  #      #        if: always()
+  #      #        uses: geekyeggo/delete-artifact@v2
+  #      #        with:
+  #      #          name: build-Android
+  
+  deployToItchIO:
+    if: github.event.action == 'published'
+    needs: [ buildWithLinux ]
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Install MinIO Client
+        run: |
+          curl https://dl.min.io/client/mc/release/linux-amd64/mc \
+          --create-dirs \
+          -o $HOME/minio-binaries/mc
+
+          chmod +x $HOME/minio-binaries/mc
+          echo "$HOME/minio-binaries" >> $GITHUB_PATH
+
+      - name: Configure MinIO Client
+        run: |
+          mc alias set s3mcl https://s3.api.massivecreationlab.com ${{ secrets.MINIO_ACCESS_KEY }} ${{ secrets.MINIO_SECRET_KEY }}
+      - name: Download Windows Artifact
+        run: |
+          mc cp --recursive s3mcl/furious-poultry-artifacts/StandaloneWindows64/ ${{ format('{0}/build/StandaloneWindows64', github.workspace) }}
+
+      - uses: manleydev/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+          CHANNEL: windows
+          ITCH_GAME: furious_poultry
+          ITCH_USER: massivecreationlab
+          PACKAGE: build/StandaloneWindows64
+  
+  
+  
+  
+  announceReleaseToSocialMedia:
+    name: Announce Release to Social Media
+    runs-on: ubuntu-latest
+    #    needs: [  versions, deployToAppStore, deployToGooglePlay, deployToItchIO ]
+    needs: [  versions, deployToAppStore, deployToItchIO ]
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Prepare Announcement
+        id: prepare
+        shell: bash
+        env:
+          VERSION: ${{ needs.versions.outputs.VERSION }}
+        run: |
+          export ANNOUNCEMENT="Released furious_poultry $VERSION on iOS & Android. Enjoy! \n Join on Android: ___ \n Join on iOS: You´ve got mail, or update via test-flight app \n Join on Windows: https://massivecreationlab.itch.io/furious_poultry"
+          ANNOUNCEMENT="${ANNOUNCEMENT//'%'/'%25'}"
+          ANNOUNCEMENT="${ANNOUNCEMENT//$'\n'/'%0A'}"
+          ANNOUNCEMENT="${ANNOUNCEMENT//$'\r'/'%0D'}"
+          echo "$ANNOUNCEMENT"
+          echo "::set-output name=ANNOUNCEMENT::$ANNOUNCEMENT"
+      - name: Discord Announcement
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        uses: Ilshidur/action-discord@0.3.2
+        with:
+          args: ${{ steps.prepare.outputs.ANNOUNCEMENT }}

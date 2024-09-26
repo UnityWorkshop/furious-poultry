@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2569937727732232488}
   - component: {fileID: 8462417880499471841}
+  - component: {fileID: 7325993490937921743}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -55,6 +56,19 @@ MonoBehaviour:
     yeetPos: {fileID: 9190868448265222125}
     zeplinYeetPos: {fileID: 0}
     currentFocus: {fileID: 0}
+--- !u!114 &7325993490937921743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564085108032453621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dcec68f1e9f4da4b4b01ea4ace65859, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 7362791150258902884}
 --- !u!1 &2007913814444439225
 GameObject:
   m_ObjectHideFlags: 0

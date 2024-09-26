@@ -10,6 +10,7 @@ using SystemVector3 = System.Numerics.Vector3;
 
 namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
 {
+    [RequireComponent(typeof(MobileInput))]
     public class BallYeeterAuthoring : MonoBehaviour, ITransformProvider, IInputProvider
     { 
         private float _xRotation;
@@ -20,6 +21,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
         [SerializeField] BallYeeterDefinition config;
         private Player _player;
 
+        MobileInput _mobileInput;
         public void OnValidate()
         {
             if (!config.ballPrefabs.Any())
@@ -33,6 +35,8 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
     
         void Start()
         {
+            _mobileInput = GetComponent<MobileInput>();
+            
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
 
@@ -42,6 +46,24 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
         }
 
         void Update()
+        {
+#if UNITY_EDITOR
+            MobileInput();
+#endif
+
+#if DESKTOP
+            DesktopInput();
+#endif
+
+#if MOBILE
+            DesktopInput();
+#endif
+            
+            TryPlayerPositionUpdate();
+        }
+
+
+        void DesktopInput()
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
@@ -53,9 +75,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
             }
         
             if (Input.GetKeyDown(KeyCode.Mouse0)) ExecutePrimaryAction();
-
-            TryPlayerPositionUpdate();
-        
+            
             MouseLook();
         
             TryResetFocus();
@@ -64,6 +84,11 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
             {
                 _currentPoultryAuthoring.Destruct();
             }
+        }
+
+        void MobileInput()
+        {
+            _mobileInput.ControlledUpdate();
         }
 
         //--//

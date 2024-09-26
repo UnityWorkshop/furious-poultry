@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 9ad65be616ae19646a7d105f6590f1a7
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/Mars.unity
+    guid: d64be3853c9c099409a87d2c09aacede
+  - enabled: 1
+    path: Assets/Scenes/ChickenApocalypse.unity
+    guid: 44baf63fefea5e440ad1730da70bbc71
   m_configObjects: {}

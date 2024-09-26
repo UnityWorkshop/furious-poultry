@@ -40,7 +40,7 @@ namespace build
             if (!int.TryParse(versionCodeString, out int versionCode))
                 throw new ArgumentException($"versionCode argument not formatted correctly: {versionCodeString}");
 
-            string[] scenes;
+            string[] scenes = { "Assets/Scenes/MainMenu.unity", "Assets/Scenes/ChickenApocalypse.unity", "Assets/Scenes/Mars.unity" };
             string defineSymbols;
             string appendix = "";
             BuildTarget buildTarget;
@@ -56,7 +56,6 @@ namespace build
                     PlayerSettings.Android.keystorePass = androidKeystorePass;
                     PlayerSettings.Android.keystoreName = "user.keystore";
 
-                    scenes = new[] { "Assets/Scenes/Menu.unity", "Assets/Scenes/Game.unity" };
                     defineSymbols = "MOBILE";
                     buildTarget = BuildTarget.Android;
                     PlayerSettings.applicationIdentifier = "com.massivecreationlab.workshop.furious_poultry";
@@ -65,7 +64,6 @@ namespace build
                     appendix = ".aab";
                     break;
                 case "iOS":
-                    scenes = new[] { "Assets/Scenes/Menu.unity", "Assets/Scenes/Game.unity" };
                     defineSymbols = "MOBILE";
                     buildTarget = BuildTarget.iOS;
                     PlayerSettings.applicationIdentifier = "com.massivecreationlab.workshop.furious_poultry";
@@ -73,18 +71,15 @@ namespace build
                     PlayerSettings.bundleVersion = versionString;
                     break;
                 case "LinuxStandalone64":
-                    scenes = new[] { "Assets/Scenes/Menu.unity", "Assets/Scenes/Game.unity" };
                     defineSymbols = "DESKTOP";
                     buildTarget = BuildTarget.StandaloneLinux64;
                     break;
                 case "StandaloneWindows64":
-                    scenes = new[] { "Assets/Scenes/Menu.unity", "Assets/Scenes/Game.unity" };
                     defineSymbols = "DESKTOP";
                     buildTarget = BuildTarget.StandaloneWindows64;
                     appendix = ".exe";
                     break;
                 case "Mac":
-                    scenes = new[] { "Assets/Scenes/Menu.unity", "Assets/Scenes/Game.unity" };
                     defineSymbols = "DESKTOP";
                     buildTarget = BuildTarget.StandaloneOSX;
                     break;

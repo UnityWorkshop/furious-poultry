@@ -9,8 +9,6 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.definition
     public class BallYeeterDefinition
     {
         public float forceValue = 1000;
-        public float sensX = 900;
-        public float sensY = 900;
         
         public List <PoultryAuthoring> ballPrefabs;
         public Transform yeetPos;

@@ -10,18 +10,13 @@ using SystemVector3 = System.Numerics.Vector3;
 
 namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
 {
-    [RequireComponent(typeof(MobileInput))]
-    public class BallYeeterAuthoring : MonoBehaviour, ITransformProvider, IInputProvider
+    public class BallYeeterAuthoring : MonoBehaviour, ITransformProvider
     { 
-        private float _xRotation;
-        private float _yRotation;
-        
         private PoultryAuthoring _currentPoultryAuthoring;
 
         [SerializeField] BallYeeterDefinition config;
         private Player _player;
 
-        MobileInput _mobileInput;
         public void OnValidate()
         {
             if (!config.ballPrefabs.Any())
@@ -30,65 +25,15 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
             }
         }
 
-        protected BallYeeterService BallYeeterService;
-        BallYeeter _ballYeeter;
     
         void Start()
         {
-            _mobileInput = GetComponent<MobileInput>();
-            
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-
             _player = new Player(config.ballPrefabs.Count);
-            _ballYeeter = new BallYeeter(10);
-            BallYeeterService = new BallYeeterService(config.ballPrefabs.Count - 1, _ballYeeter, this);
         }
 
         void Update()
         {
-#if UNITY_EDITOR
-            MobileInput();
-#endif
-
-#if DESKTOP
-            DesktopInput();
-#endif
-
-#if MOBILE
-            DesktopInput();
-#endif
-            
             TryPlayerPositionUpdate();
-        }
-
-
-        void DesktopInput()
-        {
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                _player.PreviousPoultry();
-            }
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                _player.NextPoultry();
-            }
-        
-            if (Input.GetKeyDown(KeyCode.Mouse0)) ExecutePrimaryAction();
-            
-            MouseLook();
-        
-            TryResetFocus();
-
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                _currentPoultryAuthoring.Destruct();
-            }
-        }
-
-        void MobileInput()
-        {
-            _mobileInput.ControlledUpdate();
         }
 
         //--//
@@ -102,21 +47,9 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
             }
         }
     
-        private void MouseLook() // actual name for looking around with a mouse in a game source: wikipedia
-        {
-            float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * config.sensX;
-            float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * config.sensY;
-
-            _yRotation += mouseX;
-            _xRotation -= mouseY;
-
-            _xRotation = Mathf.Clamp(_xRotation, -90f, 90f);
         
-            transform.rotation = Quaternion.Euler(_xRotation, _yRotation, 0);
-       
-        }
     
-        private void TryResetFocus()
+        public void TryResetFocus()
         {
             if (_currentPoultryAuthoring && _currentPoultryAuthoring.IsDead() || !config.currentFocus)       
             {
@@ -124,7 +57,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
             }  
         }
 
-        private void ExecutePrimaryAction()
+        public void ExecutePrimaryAction()
         {
             if (config.currentFocus == config.zeplinYeetPos)
             {
@@ -158,9 +91,17 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
         }
 
         public SystemVector3 Forward => transform.forward.ToSystem();
-        public bool PressedKeySwitchPoultryPrevious => Input.GetKeyDown(KeyCode.A);
-        public bool PressedKeySwitchPoultryNext => Input.GetKeyDown(KeyCode.D);
-        public bool PressedKeyResetPoultry => Input.GetKeyDown(KeyCode.R);
-        public bool PressedKeyShoot => Input.GetKeyDown(KeyCode.Mouse0);
+        public void DestroyPoultry()
+        {
+            _currentPoultryAuthoring.Destruct();
+        }
+        public void NextPoultry()
+        {
+            _player.NextPoultry();
+        }
+        public void PreviousPoultry()
+        {
+            _player.PreviousPoultry();
+        }
     }
 }

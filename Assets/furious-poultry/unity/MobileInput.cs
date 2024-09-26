@@ -15,7 +15,19 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
             _zoomManager = new ZoomManager(camera);
         }
 
-        public void ControlledUpdate()
+        public void Update()
+        {
+#if UNITY_EDITOR
+            ExecuteMobileInput();
+#endif
+
+#if MOBILE
+            ExecuteMobileInput();
+#endif
+            
+        }
+
+        void ExecuteMobileInput()
         {
             ProcessTouchChanges();
             DetermineTouchActions();

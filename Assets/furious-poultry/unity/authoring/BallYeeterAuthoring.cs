@@ -34,11 +34,12 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
         void Update()
         {
             TryPlayerPositionUpdate();
+            TryResetFocus();
         }
 
         //--//
-    
-        private void TryPlayerPositionUpdate()
+
+        void TryPlayerPositionUpdate()
         {
             if (config.currentFocus)
             {
@@ -46,16 +47,26 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
                 config.currentFocus.transform.rotation = transform.rotation;
             }
         }
-    
-        
-    
-        public void TryResetFocus()
+
+
+        void TryResetFocus()
         {
             if (_currentPoultryAuthoring && _currentPoultryAuthoring.IsDead() || !config.currentFocus)       
             {
                 config.currentFocus = config.zeplinYeetPos;
             }  
         }
+        
+        void DestroyAllAbilityLeftovers()
+        {
+            //GameObject[] leftoversToDelete = GameObject.FindGameObjectsWithTag("AbilityLeftovers");
+            if (_currentPoultryAuthoring is null) return;
+            foreach (var leftOver in _currentPoultryAuthoring.abilityLeftOvers)
+            {
+                Destroy(leftOver);
+            }
+        }
+        
 
         public void ExecutePrimaryAction()
         {
@@ -70,24 +81,6 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
                 return;
             }
             _currentPoultryAuthoring.DoPrimaryAbility(transform.forward);
-        }
-
-        private void DestroyAllAbilityLeftovers()
-        {
-            //GameObject[] leftoversToDelete = GameObject.FindGameObjectsWithTag("AbilityLeftovers");
-            if (_currentPoultryAuthoring is null) return;
-            foreach (var leftOver in _currentPoultryAuthoring.abilityLeftOvers)
-            {
-                Destroy(leftOver);
-            }
-        }
-
-        private void TryManualPoultryReset()
-        {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                _currentPoultryAuthoring.Destruct();
-            }
         }
 
         public SystemVector3 Forward => transform.forward.ToSystem();

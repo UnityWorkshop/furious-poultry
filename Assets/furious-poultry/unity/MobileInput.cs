@@ -1,17 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using com.github.UnityWorkshop.furious_poultry.unity.authoring;
 using UnityEngine;
 
 namespace com.github.UnityWorkshop.furious_poultry.unity
 {
+    [RequireComponent(typeof(BallYeeterAuthoring))]
     public class MobileInput : MonoBehaviour
     {
         public Camera camera;
         Dictionary<int, TouchInstance> _touchInstances = new Dictionary<int, TouchInstance>();
 
+        BallYeeterAuthoring _ballYeeterAuthoring;
         void Start()
         {
+            _ballYeeterAuthoring = GetComponent<BallYeeterAuthoring>();
             _zoomManager = new ZoomManager(camera);
         }
 
@@ -25,6 +29,11 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
             ExecuteMobileInput();
 #endif
             
+        }
+
+        public void Attack()
+        {
+            _ballYeeterAuthoring.ExecutePrimaryAction();
         }
 
         void ExecuteMobileInput()

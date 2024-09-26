@@ -43,9 +43,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
             if (Input.GetKeyDown(KeyCode.Mouse0)) _ballYeeterAuthoring.ExecutePrimaryAction();
             
             MouseLook();
-        
-            _ballYeeterAuthoring.TryResetFocus();
-
+            
             if (Input.GetKeyDown(KeyCode.R))
             {
                 _ballYeeterAuthoring.DestroyPoultry();

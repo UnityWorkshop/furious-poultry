@@ -103,7 +103,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
                     return;
                 }
                 Vector2 canvasOffset = (moveTouchInstance.CurrentPosition - moveTouchInstance.InitialPosition) * (0.05f * _zoomManager.Fraction);
-                Vector3 newRotation = _rotateInstance.Origin - new Vector3(canvasOffset.y, canvasOffset.x, currentRotation.z);
+                Vector3 newRotation = _rotateInstance.Origin - new Vector3(-canvasOffset.y, canvasOffset.x, currentRotation.z);
                 transform.localRotation = Quaternion.Euler(new Vector3(newRotation.x, newRotation.y, newRotation.z));
                 
                 // Debug.LogWarning($"Navigating - Offset: {canvasOffset}, Origin: {_moveInstance.Origin}, NewPosition: {newPosition}");

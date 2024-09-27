@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using com.github.UnityWorkshop.furious_poultry.unity.authoring;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace com.github.UnityWorkshop.furious_poultry.unity
 {
@@ -34,6 +35,16 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
         public void Attack()
         {
             _playerAuthoring.ExecutePrimaryAction();
+        }
+
+        public void Beagle()
+        {
+            _playerAuthoring.NextPoultry();
+        }
+        
+        public void Cluck()
+        {
+            _playerAuthoring.PreviousPoultry();
         }
 
         void ExecuteMobileInput()

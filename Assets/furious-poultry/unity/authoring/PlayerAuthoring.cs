@@ -62,7 +62,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
         {
             if (currentFocus)
             {
-                transform.position = currentFocus.position;
+                transform.position = currentFocus.position + transform.forward*-10;
                 currentFocus.transform.rotation = transform.rotation;
             }
         }
@@ -70,15 +70,19 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
 
         void ResetFocus()
         {
-            if (_currentPoultryAuthoring && _currentPoultryAuthoring.IsDead() || !currentFocus)       
+            if (_currentPoultryAuthoring && _currentPoultryAuthoring.IsDead() || !currentFocus)
             {
-                _currentPoultryAuthoring = Instantiate(ballPrefabs[_player.CurrentIndex], projectileOrigin.position, Quaternion.identity);
-                _currentPoultryAuthoring.Initialize();
-                currentFocus = _currentPoultryAuthoring.transform;
-                _poultryHeld = true;
+                ReplacePoultry();
             }  
         }
-        
+        void ReplacePoultry()
+        {
+            _currentPoultryAuthoring = Instantiate(ballPrefabs[_player.CurrentIndex], projectileOrigin.position, Quaternion.identity);
+            _currentPoultryAuthoring.Initialize();
+            currentFocus = _currentPoultryAuthoring.transform;
+            _poultryHeld = true;
+        }
+
         void DestroyAllAbilityLeftovers()
         {
             //GameObject[] leftoversToDelete = GameObject.FindGameObjectsWithTag("AbilityLeftovers");
@@ -112,10 +116,14 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
         public void NextPoultry()
         {
             _player.NextPoultry();
+            DestroyPoultry();
+            ReplacePoultry();
         }
         public void PreviousPoultry()
         {
             _player.PreviousPoultry();
+            DestroyPoultry();
+            ReplacePoultry();
         }
     }
 }

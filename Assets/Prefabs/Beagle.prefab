@@ -187,7 +187,7 @@ MonoBehaviour:
   abilityLeftOvers: []
   pelletAmount: 9
   pelletPrefab: {fileID: 1419465531841158752, guid: 316cd14a254488d45953a5186bb74229, type: 3}
-  pelletSpeed: 1000
+  pelletSpeed: 2000
   pelletSpread: 10
   pelletDamage: 1
   shotPosition: {fileID: 3805856747541044599}

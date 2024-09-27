@@ -28,7 +28,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
                 Quaternion rotationQuaternion = Quaternion.Euler(rotation);
                 Pellet pellet = Instantiate(pelletPrefab, shotPosition.position, rotationQuaternion);
                 pellet.Initialize(pelletDamage);
-                Vector3 shotForce = direction * pelletSpeed ;
+                Vector3 shotForce = pellet.transform.forward * pelletSpeed;
                 abilityLeftOvers.Add(pellet);
                 pellet.AddForce(shotForce);
             }

@@ -225,9 +225,9 @@ GameObject:
   - component: {fileID: 7188020008210492682}
   - component: {fileID: 6063366482676510432}
   - component: {fileID: 5629990381324828408}
-  - component: {fileID: 3816887568167924851}
   - component: {fileID: 8607849571457335387}
   - component: {fileID: 3487096945647514694}
+  - component: {fileID: 5173688602731642311}
   m_Layer: 0
   m_Name: WarthogModel
   m_TagString: Untagged
@@ -300,27 +300,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &3816887568167924851
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7902369482851998305}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.4953435
-  m_Center: {x: 0, y: -0.011723757, z: 0}
 --- !u!54 &8607849571457335387
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -362,3 +341,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WarthogDefinition:
     health: 50
+--- !u!65 &5173688602731642311
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7902369482851998305}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: c09074e1bcb012341bbe425f5bd709bf, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -228,15 +228,203 @@ Transform:
   m_Children: []
   m_Father: {fileID: 569519200}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &93527688 stripped
+--- !u!1001 &57892408
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1729870974}
+    m_Modifications:
+    - target: {fileID: 2303623642768841834, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_Name
+      value: Rocket Warthog (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -38.02999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.19999886
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -56.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.81205505
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.58358085
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -71.406
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+--- !u!4 &57892409 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-  m_PrefabInstance: {fileID: 1247049974}
+  m_PrefabInstance: {fileID: 57892408}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &199025021 stripped
+--- !u!1001 &69784246
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1729870974}
+    m_Modifications:
+    - target: {fileID: 2303623642768841834, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_Name
+      value: Rocket Warthog (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.6788
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.6788
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.6788
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -39.559994
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.19999886
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -46.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.92387956
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.38268343
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+--- !u!4 &69784247 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-  m_PrefabInstance: {fileID: 412726591}
+  m_PrefabInstance: {fileID: 69784246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &293825997
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1729870974}
+    m_Modifications:
+    - target: {fileID: 2303623642768841834, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_Name
+      value: Rocket Warthog (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 37.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.19999886
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 25.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.92387956
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.38268343
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+--- !u!4 &293825998 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+  m_PrefabInstance: {fileID: 293825997}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &299801278
 GameObject:
@@ -343,10 +531,79 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299801278}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &303470745 stripped
+--- !u!1001 &330279173
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1729870974}
+    m_Modifications:
+    - target: {fileID: 2303623642768841834, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_Name
+      value: Rocket Warthog (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.1305616
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.1305616
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.1305616
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -31.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.19999886
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 52.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99187434
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.12722184
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 14.618
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+--- !u!4 &330279174 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-  m_PrefabInstance: {fileID: 378142784}
+  m_PrefabInstance: {fileID: 330279173}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &330979651
 GameObject:
@@ -431,7 +688,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!1001 &336929343
+--- !u!1001 &553581830
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -441,76 +698,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2303623642768841834, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
       propertyPath: m_Name
-      value: Rocket Warthog (1)
+      value: Rocket Warthog (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.6788
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.6788
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.6788
       objectReference: {fileID: 0}
     - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -50
+      value: 45.04
       objectReference: {fileID: 0}
     - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10
+      value: -0.19999886
       objectReference: {fileID: 0}
     - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
---- !u!1001 &378142784
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1729870974}
-    m_Modifications:
-    - target: {fileID: 2303623642768841834, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_Name
-      value: Rocket Warthog (7)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -35
+      value: 26.99
       objectReference: {fileID: 0}
     - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -522,7 +734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.38268343
+      value: -0.38268343
       objectReference: {fileID: 0}
     - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
       propertyPath: m_LocalRotation.z
@@ -534,7 +746,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 45
+      value: -45
       objectReference: {fileID: 0}
     - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -545,124 +757,10 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
---- !u!1001 &412726591
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1729870974}
-    m_Modifications:
-    - target: {fileID: 2303623642768841834, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_Name
-      value: Rocket Warthog (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -50
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
---- !u!1001 &414372994
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1729870974}
-    m_Modifications:
-    - target: {fileID: 2303623642768841834, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_Name
-      value: Rocket Warthog
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
---- !u!4 &532512626 stripped
+--- !u!4 &553581831 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-  m_PrefabInstance: {fileID: 414372994}
+  m_PrefabInstance: {fileID: 553581830}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &556765887
 PrefabInstance:
@@ -877,6 +975,68 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 570350090}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &649469285
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1729870974}
+    m_Modifications:
+    - target: {fileID: 2303623642768841834, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_Name
+      value: Rocket Warthog (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -46.699993
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.19999886
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -47.929996
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.92387956
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.38268343
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+--- !u!4 &649469286 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+  m_PrefabInstance: {fileID: 649469285}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &668955151
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,6 +1225,142 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3111229499435934558, guid: 32c1d6857db710f409b7a3619721a690, type: 3}
   m_PrefabInstance: {fileID: 556765887}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &829132508
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1729870974}
+    m_Modifications:
+    - target: {fileID: 2303623642768841834, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_Name
+      value: Rocket Warthog (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -49.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.19999886
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -38.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.92387956
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.38268343
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+--- !u!4 &829132509 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+  m_PrefabInstance: {fileID: 829132508}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &863279067
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1729870974}
+    m_Modifications:
+    - target: {fileID: 2303623642768841834, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_Name
+      value: Rocket Warthog (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.9133894
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.9133894
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.9133894
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -49.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.19999886
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 47.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.96678805
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.25557962
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 29.616
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+--- !u!4 &863279068 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+  m_PrefabInstance: {fileID: 863279067}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &865132161 stripped
 Transform:
@@ -1446,131 +1742,86 @@ Transform:
   m_GameObject: {fileID: 1103158336}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -11.591279, z: 0}
   m_LocalScale: {x: 40, y: 40, z: 40}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1137346325 stripped
+--- !u!1001 &1156473019
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1729870974}
+    m_Modifications:
+    - target: {fileID: 2303623642768841834, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_Name
+      value: Rocket Warthog (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.1305616
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.1305616
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.1305616
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -44.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.19999886
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 31.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.96678805
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.25557962
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 29.616
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+--- !u!4 &1156473020 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-  m_PrefabInstance: {fileID: 2076322111}
+  m_PrefabInstance: {fileID: 1156473019}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1186108768
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1729870974}
-    m_Modifications:
-    - target: {fileID: 2303623642768841834, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_Name
-      value: Rocket Warthog (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
---- !u!1001 &1247049974
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1729870974}
-    m_Modifications:
-    - target: {fileID: 2303623642768841834, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_Name
-      value: Rocket Warthog (6)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -35
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.92387956
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.38268343
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
 --- !u!1001 &1415055955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1589,7 +1840,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10
+      value: -0.19999886
       objectReference: {fileID: 0}
     - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1628,6 +1879,80 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+--- !u!1001 &1461323995
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1729870974}
+    m_Modifications:
+    - target: {fileID: 2303623642768841834, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_Name
+      value: Rocket Warthog (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.231698
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.231698
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4.231698
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -64.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.19999886
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 38.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.96678805
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.25557962
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 29.616
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+--- !u!4 &1461323996 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+  m_PrefabInstance: {fileID: 1461323995}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1465235868 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5168141579188072349, guid: c0b63de418e28cd4d8a073df04bcd545, type: 3}
@@ -1738,6 +2063,80 @@ Transform:
   m_Children: []
   m_Father: {fileID: 569519200}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1568537328
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1729870974}
+    m_Modifications:
+    - target: {fileID: 2303623642768841834, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_Name
+      value: Rocket Warthog (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.9133894
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.9133894
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.9133894
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -60.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.19999886
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.96678805
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.25557962
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 29.616
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+--- !u!4 &1568537329 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+  m_PrefabInstance: {fileID: 1568537328}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1589467341
 GameObject:
   m_ObjectHideFlags: 0
@@ -1857,7 +2256,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5168141579188072349, guid: c0b63de418e28cd4d8a073df04bcd545, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13
+      value: 5.8
       objectReference: {fileID: 0}
     - target: {fileID: 5168141579188072349, guid: c0b63de418e28cd4d8a073df04bcd545, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1937,22 +2336,22 @@ Transform:
   m_LocalScale: {x: 1.6099, y: 1.6099, z: 1.6099}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 532512626}
-  - {fileID: 1878543683}
-  - {fileID: 2068961371}
-  - {fileID: 199025021}
   - {fileID: 865132161}
-  - {fileID: 1137346325}
-  - {fileID: 93527688}
-  - {fileID: 303470745}
+  - {fileID: 649469286}
+  - {fileID: 829132509}
+  - {fileID: 57892409}
+  - {fileID: 69784247}
+  - {fileID: 863279068}
+  - {fileID: 1568537329}
+  - {fileID: 1461323996}
+  - {fileID: 1156473020}
+  - {fileID: 330279174}
+  - {fileID: 293825998}
+  - {fileID: 1977403243}
+  - {fileID: 553581831}
   - {fileID: 1465235868}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1878543683 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-  m_PrefabInstance: {fileID: 336929343}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1907564060
 GameObject:
   m_ObjectHideFlags: 0
@@ -2052,7 +2451,7 @@ Transform:
   m_GameObject: {fileID: 1907564060}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 20, z: 0}
+  m_LocalPosition: {x: 0, y: 8.408721, z: 0}
   m_LocalScale: {x: 3, y: 1, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2146,7 +2545,7 @@ Transform:
   m_GameObject: {fileID: 1910970904}
   serializedVersion: 2
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: -8.591279, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2290,6 +2689,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1977403242
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1729870974}
+    m_Modifications:
+    - target: {fileID: 2303623642768841834, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_Name
+      value: Rocket Warthog (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 46.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.19999886
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 16.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.81205505
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.58358085
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -71.406
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+--- !u!4 &1977403243 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
+  m_PrefabInstance: {fileID: 1977403242}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2050532897
 GameObject:
   m_ObjectHideFlags: 0
@@ -2395,68 +2856,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 569519200}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &2068961371 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-  m_PrefabInstance: {fileID: 1186108768}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &2076322111
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1729870974}
-    m_Modifications:
-    - target: {fileID: 2303623642768841834, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_Name
-      value: Rocket Warthog (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -35
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -35
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.92387956
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.38268343
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -45
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324164388201344441, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 72f82ee79a1e2c74abcc3225f6db026d, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -14,7 +14,18 @@ namespace build
         
         private static readonly string[] Secrets =
             {"androidKeystorePass", "androidKeyaliasName", "androidKeyaliasPass"};
-
+        
+        [MenuItem("Builds/SetDesktopDefineSymbol")]
+        public static void SetDesktopDefineSymbol()
+        {
+            PlayerSettings.SetScriptingDefineSymbolsForGroup(BuildTargetGroup.Standalone, "DESKTOP");
+        }
+        
+        [MenuItem("Builds/SetMobileDefineSymbol")]
+        public static void SetMobileDefineSymbol()
+        {
+            PlayerSettings.SetScriptingDefineSymbolsForGroup(BuildTargetGroup.Standalone, "MOBILE");
+        }
         
         [MenuItem("Builds/CI")]
         public static void TestBuildGame() {

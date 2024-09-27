@@ -18,6 +18,8 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
         {
             if (menuScene)
             {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 for (int i = 1; i < Scenes; i++)
                 {
                     var i1 = i;

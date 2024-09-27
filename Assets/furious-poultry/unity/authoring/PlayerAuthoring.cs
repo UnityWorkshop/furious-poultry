@@ -39,14 +39,14 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
         {
             _player = new Player(ballPrefabs.Count);
             if (currentFocus == null)
-                ResetFocus();
+                TryResetFocus();
         }
 
         void Update()
         {
             PoultryPositionUpdate();
             PlayerPositionUpdate();
-            ResetFocus();
+            TryResetFocus();
         }
 
         void PoultryPositionUpdate()
@@ -68,9 +68,9 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
         }
 
 
-        void ResetFocus()
+        void TryResetFocus()
         {
-            if (_currentPoultryAuthoring && _currentPoultryAuthoring.IsDead() || !currentFocus)
+            if (_currentPoultryAuthoring != null && _currentPoultryAuthoring.IsDead() || !currentFocus || _currentPoultryAuthoring == null)
             {
                 ReplacePoultry();
             }  
@@ -112,18 +112,17 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
         public void DestroyPoultry()
         {
             _currentPoultryAuthoring.Destruct();
+            ReplacePoultry();
         }
         public void NextPoultry()
         {
             _player.NextPoultry();
             DestroyPoultry();
-            ReplacePoultry();
         }
         public void PreviousPoultry()
         {
             _player.PreviousPoultry();
             DestroyPoultry();
-            ReplacePoultry();
         }
     }
 }

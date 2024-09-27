@@ -11,6 +11,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
     public class MobileInput : MonoBehaviour
     {
         public Camera camera;
+        public GameObject mobileGUI;
         Dictionary<int, TouchInstance> _touchInstances = new Dictionary<int, TouchInstance>();
 
         PlayerAuthoring _playerAuthoring;
@@ -18,6 +19,19 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
         {
             _playerAuthoring = GetComponent<PlayerAuthoring>();
             _zoomManager = new ZoomManager(camera);
+            
+#if UNITY_EDITOR
+            InitializeMobile();
+#endif
+
+#if MOBILE
+            InitializeMobile();
+#endif
+        }
+
+        void InitializeMobile()
+        {
+            mobileGUI.SetActive(true);
         }
 
         public void Update()

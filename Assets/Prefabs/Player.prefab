@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 7362791150258902884}
+  mobileGUI: {fileID: 3739957609925863521}
 --- !u!114 &8626600468587601198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,7 +559,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7013882061475582123
 RectTransform:
   m_ObjectHideFlags: 0

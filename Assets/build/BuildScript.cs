@@ -79,7 +79,7 @@ namespace build
                 case "iOS":
                     defineSymbols = "MOBILE";
                     buildTarget = BuildTarget.iOS;
-                    PlayerSettings.applicationIdentifier = "com.massivecreationlab.workshop.furious_poultry";
+                    PlayerSettings.applicationIdentifier = "com.massivecreationlab.workshop.furious-poultry";
                     PlayerSettings.iOS.buildNumber = versionCode.ToString();
                     PlayerSettings.bundleVersion = versionString;
                     break;

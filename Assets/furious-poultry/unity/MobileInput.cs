@@ -6,16 +6,16 @@ using UnityEngine;
 
 namespace com.github.UnityWorkshop.furious_poultry.unity
 {
-    [RequireComponent(typeof(BallYeeterAuthoring))]
+    [RequireComponent(typeof(PlayerAuthoring))]
     public class MobileInput : MonoBehaviour
     {
         public Camera camera;
         Dictionary<int, TouchInstance> _touchInstances = new Dictionary<int, TouchInstance>();
 
-        BallYeeterAuthoring _ballYeeterAuthoring;
+        PlayerAuthoring _playerAuthoring;
         void Start()
         {
-            _ballYeeterAuthoring = GetComponent<BallYeeterAuthoring>();
+            _playerAuthoring = GetComponent<PlayerAuthoring>();
             _zoomManager = new ZoomManager(camera);
         }
 
@@ -33,7 +33,7 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
 
         public void Attack()
         {
-            _ballYeeterAuthoring.ExecutePrimaryAction();
+            _playerAuthoring.ExecutePrimaryAction();
         }
 
         void ExecuteMobileInput()

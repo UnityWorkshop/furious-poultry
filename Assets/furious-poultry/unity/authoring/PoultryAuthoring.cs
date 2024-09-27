@@ -46,7 +46,6 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
         }
         public void AddForce(Vector3 directionalForce)
         {
-            _rigidbody = GetComponent<Rigidbody>();
             _rigidbody.AddForce(directionalForce);
         }
 
@@ -71,6 +70,11 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
         {
             Poultry = poultryDefinition.ToPoultry();
             PoultryService = new PoultryService(this, Poultry);
+            _rigidbody = GetComponent<Rigidbody>();
+        }
+        public void ResetForce()
+        {
+            _rigidbody.velocity = Vector3.zero;
         }
     }
 }

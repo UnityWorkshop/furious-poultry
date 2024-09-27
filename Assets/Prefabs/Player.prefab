@@ -370,14 +370,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28c91b1932b668e4ebe82bdc6fd4471c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  config:
-    forceValue: 1000
-    ballPrefabs:
-    - {fileID: 5878251691614649356, guid: 165a7c7dc02b733408c73a078aa46250, type: 3}
-    - {fileID: 641246914050735469, guid: ba7d3b53eed9b9640855778640a0d029, type: 3}
-    yeetPos: {fileID: 9190868448265222125}
-    zeplinYeetPos: {fileID: 0}
-    currentFocus: {fileID: 0}
+  forceValue: 1000
+  ballPrefabs:
+  - {fileID: 5878251691614649356, guid: 165a7c7dc02b733408c73a078aa46250, type: 3}
+  - {fileID: 641246914050735469, guid: ba7d3b53eed9b9640855778640a0d029, type: 3}
+  projectileOrigin: {fileID: 9190868448265222125}
+  zeplinYeetPos: {fileID: 0}
+  currentFocus: {fileID: 0}
 --- !u!114 &7325993490937921743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -490,7 +489,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9190868448265222125}
   m_Layer: 0
-  m_Name: shootPos
+  m_Name: projectileOrigin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

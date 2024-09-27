@@ -4,16 +4,16 @@ using UnityEngine;
 
 namespace com.github.UnityWorkshop.furious_poultry.unity
 {
-    [RequireComponent(typeof(BallYeeterAuthoring))]
+    [RequireComponent(typeof(PlayerAuthoring))]
     public class DesktopInput: MonoBehaviour
     {
         public float sensX = 900;
         public float sensY = 900;
         
-        BallYeeterAuthoring _ballYeeterAuthoring;
+        PlayerAuthoring _playerAuthoring;
         void Start()
         {
-            _ballYeeterAuthoring = GetComponent<BallYeeterAuthoring>();
+            _playerAuthoring = GetComponent<PlayerAuthoring>();
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
 
@@ -33,20 +33,20 @@ namespace com.github.UnityWorkshop.furious_poultry.unity
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
-                _ballYeeterAuthoring.PreviousPoultry();
+                _playerAuthoring.PreviousPoultry();
             }
             if (Input.GetKeyDown(KeyCode.D))
             {
-                _ballYeeterAuthoring.NextPoultry();
+                _playerAuthoring.NextPoultry();
             }
         
-            if (Input.GetKeyDown(KeyCode.Mouse0)) _ballYeeterAuthoring.ExecutePrimaryAction();
+            if (Input.GetKeyDown(KeyCode.Mouse0)) _playerAuthoring.ExecutePrimaryAction();
             
             MouseLook();
             
             if (Input.GetKeyDown(KeyCode.R))
             {
-                _ballYeeterAuthoring.DestroyPoultry();
+                _playerAuthoring.DestroyPoultry();
             }
         }
         

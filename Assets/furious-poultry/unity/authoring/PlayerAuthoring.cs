@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using com.github.UnityWorkshop.Assets.furious_poultry.application.interfaces;
 using com.github.UnityWorkshop.Assets.furious_poultry.application.services;
@@ -10,16 +11,24 @@ using SystemVector3 = System.Numerics.Vector3;
 
 namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
 {
-    public class BallYeeterAuthoring : MonoBehaviour, ITransformProvider
-    { 
-        private PoultryAuthoring _currentPoultryAuthoring;
+    public class PlayerAuthoring : MonoBehaviour, ITransformProvider
+    {
 
-        [SerializeField] BallYeeterDefinition config;
-        private Player _player;
+        public float forceValue = 1000;
+        
+        public List <PoultryAuthoring> ballPrefabs = new List<PoultryAuthoring>();
+        public Transform projectileOrigin;
+
+        public Transform zelpinPoultrySpawnPoint;
+        Transform currentFocus;
+        bool _poultryHeld;
+
+        Player _player;
+        PoultryAuthoring _currentPoultryAuthoring;
 
         public void OnValidate()
         {
-            if (!config.ballPrefabs.Any())
+            if (!ballPrefabs.Any())
             {
                 throw new Exception("no balls?");
             }
@@ -28,32 +37,45 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
     
         void Start()
         {
-            _player = new Player(config.ballPrefabs.Count);
+            _player = new Player(ballPrefabs.Count);
+            if (currentFocus == null)
+                ResetFocus();
         }
 
         void Update()
         {
-            TryPlayerPositionUpdate();
-            TryResetFocus();
+            PoultryPositionUpdate();
+            PlayerPositionUpdate();
+            ResetFocus();
         }
 
-        //--//
-
-        void TryPlayerPositionUpdate()
+        void PoultryPositionUpdate()
         {
-            if (config.currentFocus)
+            if (_poultryHeld)
             {
-                transform.position = config.currentFocus.position;
-                config.currentFocus.transform.rotation = transform.rotation;
+                _currentPoultryAuthoring.ResetForce();
+                _currentPoultryAuthoring.transform.position = zelpinPoultrySpawnPoint.transform.position;
+            }
+        }
+
+        void PlayerPositionUpdate()
+        {
+            if (currentFocus)
+            {
+                transform.position = currentFocus.position;
+                currentFocus.transform.rotation = transform.rotation;
             }
         }
 
 
-        void TryResetFocus()
+        void ResetFocus()
         {
-            if (_currentPoultryAuthoring && _currentPoultryAuthoring.IsDead() || !config.currentFocus)       
+            if (_currentPoultryAuthoring && _currentPoultryAuthoring.IsDead() || !currentFocus)       
             {
-                config.currentFocus = config.zeplinYeetPos;
+                _currentPoultryAuthoring = Instantiate(ballPrefabs[_player.CurrentIndex], projectileOrigin.position, Quaternion.identity);
+                _currentPoultryAuthoring.Initialize();
+                currentFocus = _currentPoultryAuthoring.transform;
+                _poultryHeld = true;
             }  
         }
         
@@ -70,14 +92,13 @@ namespace com.github.UnityWorkshop.furious_poultry.unity.authoring
 
         public void ExecutePrimaryAction()
         {
-            if (config.currentFocus == config.zeplinYeetPos)
+            if (_poultryHeld)
             {
                 DestroyAllAbilityLeftovers();
-                Vector3 yeetPower = transform.forward * config.forceValue;
-                _currentPoultryAuthoring = Instantiate(config.ballPrefabs[_player.CurrentIndex], config.yeetPos.position, Quaternion.identity);
-                _currentPoultryAuthoring.Initialize();
+                Vector3 yeetPower = transform.forward * forceValue;
                 _currentPoultryAuthoring.AddForce(yeetPower);  
-                config.currentFocus = _currentPoultryAuthoring.transform;
+                currentFocus = _currentPoultryAuthoring.transform;
+                _poultryHeld = false;
                 return;
             }
             _currentPoultryAuthoring.DoPrimaryAbility(transform.forward);

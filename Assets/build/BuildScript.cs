@@ -19,13 +19,15 @@ namespace build
         [MenuItem("Builds/CI")]
         public static void TestBuildGame() {
             string[] args = {
-                "-platform=Android", 
+                "-platform=StandaloneWindows64", 
                 "-versionCode=1",
-                "-ANDROID_KEYSTORE_PASS=****",
-                "-ANDROID_KEYALIAS_NAME=****",
-                "-ANDROID_KEYALIAS_PASS=****",
+                "-version=0.0.1"
             };
-            BuildGameImplementation(args, new Dictionary<string, string>(),shutdown: false);
+            Dictionary<string, string> dictionary = new Dictionary<string, string>();
+            dictionary.Add("androidKeystorePass", "****");
+            dictionary.Add("androidKeyaliasName", "****");
+            dictionary.Add("androidKeyaliasPass", "****");
+            BuildGameImplementation(args, dictionary,shutdown: false);
         }
         [UsedImplicitly]
         public static void BuildGame() => BuildGameImplementation(Environment.GetCommandLineArgs(), GetValidatedOptions());
